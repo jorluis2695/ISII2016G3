@@ -8,4 +8,4 @@ El proyecto será una aplicación web desarrollada en asp.net, desarrollada bajo
 Los miembros del equipo de desarrollo son:
 - Julio Guilindro
 - Jorge Cedeño
-- Erick Buendía
+- Erick Rocafuerte
