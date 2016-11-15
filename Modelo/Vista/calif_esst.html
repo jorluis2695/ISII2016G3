@@ -509,7 +509,7 @@
                             <li>
                                 <a class="logout_open" href="#logout">
                                     <i class="fa fa-sign-out"></i> Logout
-                                    <strong>Administrador</strong>
+                                    <strong>Estudiante</strong>
                                 </a>
                             </li>
                         </ul>
@@ -540,7 +540,7 @@
                         </p>
                         <p class="name tooltip-sidebar-logout">
                             
-                            <span class="last-name">Administrador</span> <a style="color: inherit" class="logout_open" href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
+                            <span class="last-name">Estudiante</span> <a style="color: inherit" class="logout_open" href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
                         </p>
                         <div class="clearfix"></div>
                     </li>
@@ -564,32 +564,23 @@
                     <!-- begin FORMS DROPDOWN -->
                     <li class="panel">
                         <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
-                            <i class="fa fa-edit"></i> Convocatoria <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-edit"></i> Pruebas <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="collapse nav in" id="forms">
-                            <li>
-                                <a href="convocatoria.html">
-                                    <i class="fa fa-angle-double-right"></i> Crear Convocatoria
-                                </a>
-                            </li>
+                           
 							<li>
-                                <a href="aptitudes.html">
+                                <a href="aptitudes_est.html">
                                     <i class="fa fa-angle-double-right"></i> Prueba de Aptitudes
                                 </a>
                             </li>
 							<li>
-                                <a href="aptitudes.html">
-                                    <i class="fa fa-angle-double-right"></i> Crear Prueba de Aptitudes
+                                <a href="aptitudes_est.html">
+                                    <i class="fa fa-angle-double-right"></i> Prueba de Postulacion
                                 </a>
                             </li>
 							<li>
-                                <a href="aptitudes.html">
-                                    <i class="fa fa-angle-double-right"></i> Crear Prueba de Postulacion
-                                </a>
-                            </li>
-							<li>
-                                <a href="resultados.html">
-                                    <i class="fa fa-angle-double-right"></i> Reporte de Resultados
+                                <a href="calif_est.html">
+                                    <i class="fa fa-angle-double-right"></i> Calificaciones
                                 </a>
                             </li>
                         </ul>
@@ -599,20 +590,7 @@
                    
                     <!-- end CALENDAR LINK -->
                     <!-- begin TABLES DROPDOWN -->
-                    <li class="panel">
-                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#tables">
-                            <i class="fa fa-table"></i>Docentes<i class="fa fa-caret-down"></i>
-                        </a>
-                        
-                    </li>
-                    <!-- end TABLES DROPDOWN -->
-                    <!-- begin UI ELEMENTS DROPDOWN -->
-                    <li class="panel">
-                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#ui-elements">
-                            <i class="fa fa-wrench"></i> Módulos <i class="fa fa-caret-down"></i>
-                        </a>
-                        
-                    </li>
+                   
                     <!-- end UI ELEMENTS DROPDOWN -->
                     <!-- begin MESSAGE CENTER DROPDOWN -->
                     
@@ -635,8 +613,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-title">
-                            <h1>Examen de Aptitudes
-                                <small>Sobre 100 puntos</small>
+                            <h1>Calificaciones
+                                
                             </h1>
                         </div>
                     </div>
@@ -655,168 +633,7 @@
                             <div class="col-lg-12">
 							
 							
-								<div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 1</h4>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="portlet-body">
-                                        <h4>Escoger de la lista las opciones correctas</h4>
-                                        <input type="text" class="form-control" id="tokenfield-autocomplete" value="red,green,blue" placeholder="Selecciona una" />
-                                    </div>
-									
-                                </div>
-                                
-                                <!-- /.portlet -->
-
-                                <div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 2</h4>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="portlet-body">
-                                        <h4>Eliminar la palabra que no se relaciona a la computacion</h4>
-                                        <input type="text" class="form-control" id="tokenfield-typeahead" value="computadora,internet,servidor,gato,sistema"/>
-                                    </div>
-                                </div>
-                                <!-- /.portlet -->
 								
-								<div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 3</h4>
-                                        </div>
-                                        <div class="portlet-widgets">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#formControls"><i class="fa fa-chevron-down"></i></a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div id="formControls" class="panel-collapse collapse in">
-                                        <div class="portlet-body">
-                                            <form class="form-horizontal">
-                                               
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccione una respuesta</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="" checked>Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="" >Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccione de la lista</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control">
-                                                            <option>Opcion 1</option>
-                                                            <option>Opcion 2</option>
-                                                            <option>Opcion 3</option>
-                                                            <option>Opcion 4</option>
-                                                            <option>Opcion 5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <select multiple class="form-control">
-                                                            <option>1</option>
-                                                            <option>2</option>
-                                                            <option>3</option>
-                                                            <option>4</option>
-                                                            <option>5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-								
-								<div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 4</h4>
-                                        </div>
-                                        <div class="portlet-widgets">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#formControls"><i class="fa fa-chevron-down"></i></a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div id="formControls" class="panel-collapse collapse in">
-                                        <div class="portlet-body">
-                                            <form class="form-horizontal">
-                                               
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <select multiple class="form-control">
-                                                            <option>1</option>
-                                                            <option>2</option>
-                                                            <option>3</option>
-                                                            <option>4</option>
-                                                            <option>5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
                                                 
                                                 
                                             </form>
@@ -825,84 +642,7 @@
                                 </div>
 								
 								
-								<div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 5</h4>
-                                        </div>
-                                        <div class="portlet-widgets">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#formControls"><i class="fa fa-chevron-down"></i></a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div id="formControls" class="panel-collapse collapse in">
-                                        <div class="portlet-body">
-                                            <form class="form-horizontal">
-                                                
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccione una respuesta</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="" checked>Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="" >Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccione de la lista</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control">
-                                                            <option>Opcion 1</option>
-                                                            <option>Opcion 2</option>
-                                                            <option>Opcion 3</option>
-                                                            <option>Opcion 4</option>
-                                                            <option>Opcion 5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
 								
-								
-								<div class="col-sm-10">
-                                                        <button type="submit" class="btn btn-default">Enviar Formulario</button>
-                                                    </div>
                             </div>
 							
                             <!-- /.col-lg-12 (nested) -->

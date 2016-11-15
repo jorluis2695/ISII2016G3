@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Examen de Aptitudes</title>
+    <title>Flex Admin - Responsive Admin Theme</title>
 
     <!-- PACE LOAD BAR PLUGIN - This creates the subtle load bar effect at the top of the page. -->
     <link href="css/plugins/pace/pace.css" rel="stylesheet">
@@ -21,11 +21,6 @@
     <link href="icons/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- PAGE LEVEL PLUGIN STYLES -->
-    <link href="css/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
-    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet">
-    <link href="css/plugins/bootstrap-tokenfield/tokenfield-typeahead.css" rel="stylesheet">
-    <link href="css/plugins/bootstrap-tokenfield/bootstrap-tokenfield.css" rel="stylesheet">
-    <link href="css/plugins/bootstrap-datepicker/datepicker3.css" rel="stylesheet">
 
     <!-- THEME STYLES - Include these on every page. -->
     <link href="css/style.css" rel="stylesheet">
@@ -55,7 +50,7 @@
                 </button>
                 <div class="navbar-brand">
                     <a href="index.html">
-                        <img src="img/logo.png" class="img-responsive" alt="">
+                        <img src="img/flex-admin-logo.png" class="img-responsive" alt="">
                     </a>
                 </div>
             </div>
@@ -509,7 +504,7 @@
                             <li>
                                 <a class="logout_open" href="#logout">
                                     <i class="fa fa-sign-out"></i> Logout
-                                    <strong>Administrador</strong>
+                                    <strong>John Smith</strong>
                                 </a>
                             </li>
                         </ul>
@@ -539,8 +534,8 @@
                             <i class="fa fa-key"></i> Logged in as
                         </p>
                         <p class="name tooltip-sidebar-logout">
-                            
-                            <span class="last-name">Administrador</span> <a style="color: inherit" class="logout_open" href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
+                            John
+                            <span class="last-name">Smith</span> <a style="color: inherit" class="logout_open" href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
                         </p>
                         <div class="clearfix"></div>
                     </li>
@@ -556,66 +551,221 @@
                     </li>
                     <!-- end SIDE NAV SEARCH -->
                     <!-- begin DASHBOARD LINK -->
-                    
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-dashboard"></i> Dashboard
+                        </a>
+                    </li>
                     <!-- end DASHBOARD LINK -->
                     <!-- begin CHARTS DROPDOWN -->
-                  
+                    <li class="panel">
+                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#charts">
+                            <i class="fa fa-bar-chart-o"></i> Charts <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="collapse nav" id="charts">
+                            <li>
+                                <a href="flot.html">
+                                    <i class="fa fa-angle-double-right"></i> Flot Charts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="morris.html">
+                                    <i class="fa fa-angle-double-right"></i> Morris.js
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <!-- end CHARTS DROPDOWN -->
                     <!-- begin FORMS DROPDOWN -->
                     <li class="panel">
                         <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
-                            <i class="fa fa-edit"></i> Convocatoria <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-edit"></i> Forms <i class="fa fa-caret-down"></i>
                         </a>
-                        <ul class="collapse nav in" id="forms">
+                        <ul class="collapse nav" id="forms">
                             <li>
-                                <a href="convocatoria.html">
-                                    <i class="fa fa-angle-double-right"></i> Crear Convocatoria
+                                <a href="basic-form-elements.html">
+                                    <i class="fa fa-angle-double-right"></i> Basic Elements
                                 </a>
                             </li>
-							<li>
-                                <a href="aptitudes.html">
-                                    <i class="fa fa-angle-double-right"></i> Prueba de Aptitudes
+                            <li>
+                                <a href="advanced-form-elements.html">
+                                    <i class="fa fa-angle-double-right"></i> Advanced Elements
                                 </a>
                             </li>
-							<li>
-                                <a href="aptitudes.html">
-                                    <i class="fa fa-angle-double-right"></i> Crear Prueba de Aptitudes
+                            <li>
+                                <a href="validation.html">
+                                    <i class="fa fa-angle-double-right"></i> Validation
                                 </a>
                             </li>
-							<li>
-                                <a href="aptitudes.html">
-                                    <i class="fa fa-angle-double-right"></i> Crear Prueba de Postulacion
+                            <li>
+                                <a href="wysiwyg-editor.html">
+                                    <i class="fa fa-angle-double-right"></i> WYSIWYG Editor
                                 </a>
                             </li>
-							<li>
-                                <a href="resultados.html">
-                                    <i class="fa fa-angle-double-right"></i> Reporte de Resultados
+                            <li>
+                                <a href="dropzone-uploader.html">
+                                    <i class="fa fa-angle-double-right"></i> Dropzone Uploader
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <!-- end FORMS DROPDOWN -->
                     <!-- begin CALENDAR LINK -->
-                   
+                    <li>
+                        <a href="calendar.html">
+                            <i class="fa fa-calendar"></i> Calendar
+                        </a>
+                    </li>
                     <!-- end CALENDAR LINK -->
                     <!-- begin TABLES DROPDOWN -->
                     <li class="panel">
                         <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#tables">
-                            <i class="fa fa-table"></i>Docentes<i class="fa fa-caret-down"></i>
+                            <i class="fa fa-table"></i> Tables <i class="fa fa-caret-down"></i>
                         </a>
-                        
+                        <ul class="collapse nav" id="tables">
+                            <li>
+                                <a href="basic-tables.html">
+                                    <i class="fa fa-angle-double-right"></i> Basic Tables
+                                </a>
+                            </li>
+                            <li>
+                                <a href="advanced-tables.html">
+                                    <i class="fa fa-angle-double-right"></i> Advanced Tables
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <!-- end TABLES DROPDOWN -->
                     <!-- begin UI ELEMENTS DROPDOWN -->
                     <li class="panel">
                         <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#ui-elements">
-                            <i class="fa fa-wrench"></i> Módulos <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-wrench"></i> UI Elements <i class="fa fa-caret-down"></i>
                         </a>
-                        
+                        <ul class="collapse nav" id="ui-elements">
+                            <li>
+                                <a href="portlets.html">
+                                    <i class="fa fa-angle-double-right"></i> Portlets &amp; Widgets
+                                </a>
+                            </li>
+                            <li>
+                                <a href="buttons.html">
+                                    <i class="fa fa-angle-double-right"></i> Buttons
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tabs-accordions.html">
+                                    <i class="fa fa-angle-double-right"></i> Tabs &amp; Accordions
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notifications.html">
+                                    <i class="fa fa-angle-double-right"></i> Popups &amp; Notifications
+                                </a>
+                            </li>
+                            <li>
+                                <a href="sliders.html">
+                                    <i class="fa fa-angle-double-right"></i> Sliders
+                                </a>
+                            </li>
+                            <li>
+                                <a href="typography.html">
+                                    <i class="fa fa-angle-double-right"></i> Typography
+                                </a>
+                            </li>
+                            <li>
+                                <a href="icons.html">
+                                    <i class="fa fa-angle-double-right"></i> Icons
+                                </a>
+                            </li>
+                            <li>
+                                <a href="grid.html">
+                                    <i class="fa fa-angle-double-right"></i> Grid
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <!-- end UI ELEMENTS DROPDOWN -->
                     <!-- begin MESSAGE CENTER DROPDOWN -->
-                    
+                    <li class="panel">
+                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#message-center">
+                            <i class="fa fa-inbox"></i> Message Center <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="collapse nav" id="message-center">
+                            <li>
+                                <a href="mailbox.html">
+                                    <i class="fa fa-angle-double-right"></i> Mailbox
+                                </a>
+                            </li>
+                            <li>
+                                <a href="compose-message.html">
+                                    <i class="fa fa-angle-double-right"></i> Compose Message
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <i class="fa fa-angle-double-right"></i> Chat
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end MESSAGE CENTER DROPDOWN -->
+                    <!-- begin PAGES DROPDOWN -->
+                    <li class="panel">
+                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#pages">
+                            <i class="fa fa-files-o"></i> Pages <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="collapse nav in" id="pages">
+                            <li>
+                                <a href="profile.html">
+                                    <i class="fa fa-angle-double-right"></i> User Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="invoice.html">
+                                    <i class="fa fa-angle-double-right"></i> Invoice
+                                </a>
+                            </li>
+                            <li>
+                                <a href="pricing.html">
+                                    <i class="fa fa-angle-double-right"></i> Pricing Tables
+                                </a>
+                            </li>
+                            <li>
+                                <a href="faq.html">
+                                    <i class="fa fa-angle-double-right"></i> FAQ Page
+                                </a>
+                            </li>
+                            <li>
+                                <a href="search-results.html">
+                                    <i class="fa fa-angle-double-right"></i> Search Results
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-angle-double-right"></i> Login Basic
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login-social.html">
+                                    <i class="fa fa-angle-double-right"></i> Login Social
+                                </a>
+                            </li>
+                            <li>
+                                <a href="404.html">
+                                    <i class="fa fa-angle-double-right"></i> 404 Error
+                                </a>
+                            </li>
+                            <li>
+                                <a href="500.html">
+                                    <i class="fa fa-angle-double-right"></i> 500 Error
+                                </a>
+                            </li>
+                            <li>
+                                <a class="active" href="blank.html">
+                                    <i class="fa fa-angle-double-right"></i> Blank Page
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <!-- end PAGES DROPDOWN -->
                 </ul>
@@ -635,304 +785,21 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-title">
-                            <h1>Examen de Aptitudes
-                                <small>Sobre 100 puntos</small>
+                            <h1>
+                                Blank Page
+                                <small>For Customization</small>
                             </h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                </li>
+                                <li class="active">Blank Page</li>
+                            </ol>
                         </div>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
                 <!-- end PAGE TITLE ROW -->
-
-                <!-- begin ADVANCED FORM COMPONENTS MAIN ROW -->
-                <div class="row">
-
-                    <div class="col-lg-6">
-
-                        <div class="row">
-
-                            <div class="col-lg-12">
-							
-							
-								<div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 1</h4>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="portlet-body">
-                                        <h4>Escoger de la lista las opciones correctas</h4>
-                                        <input type="text" class="form-control" id="tokenfield-autocomplete" value="red,green,blue" placeholder="Selecciona una" />
-                                    </div>
-									
-                                </div>
-                                
-                                <!-- /.portlet -->
-
-                                <div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 2</h4>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="portlet-body">
-                                        <h4>Eliminar la palabra que no se relaciona a la computacion</h4>
-                                        <input type="text" class="form-control" id="tokenfield-typeahead" value="computadora,internet,servidor,gato,sistema"/>
-                                    </div>
-                                </div>
-                                <!-- /.portlet -->
-								
-								<div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 3</h4>
-                                        </div>
-                                        <div class="portlet-widgets">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#formControls"><i class="fa fa-chevron-down"></i></a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div id="formControls" class="panel-collapse collapse in">
-                                        <div class="portlet-body">
-                                            <form class="form-horizontal">
-                                               
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccione una respuesta</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="" checked>Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="" >Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccione de la lista</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control">
-                                                            <option>Opcion 1</option>
-                                                            <option>Opcion 2</option>
-                                                            <option>Opcion 3</option>
-                                                            <option>Opcion 4</option>
-                                                            <option>Opcion 5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <select multiple class="form-control">
-                                                            <option>1</option>
-                                                            <option>2</option>
-                                                            <option>3</option>
-                                                            <option>4</option>
-                                                            <option>5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-								
-								<div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 4</h4>
-                                        </div>
-                                        <div class="portlet-widgets">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#formControls"><i class="fa fa-chevron-down"></i></a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div id="formControls" class="panel-collapse collapse in">
-                                        <div class="portlet-body">
-                                            <form class="form-horizontal">
-                                               
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <select multiple class="form-control">
-                                                            <option>1</option>
-                                                            <option>2</option>
-                                                            <option>3</option>
-                                                            <option>4</option>
-                                                            <option>5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-								
-								
-								<div class="portlet portlet-default">
-                                    <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Tema 5</h4>
-                                        </div>
-                                        <div class="portlet-widgets">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#formControls"><i class="fa fa-chevron-down"></i></a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div id="formControls" class="panel-collapse collapse in">
-                                        <div class="portlet-body">
-                                            <form class="form-horizontal">
-                                                
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccion Multiple</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" value="">Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccione una respuesta</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="" checked>Opcion 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="">Opcion 2
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="" >Opcion 3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Seleccione de la lista</label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control">
-                                                            <option>Opcion 1</option>
-                                                            <option>Opcion 2</option>
-                                                            <option>Opcion 3</option>
-                                                            <option>Opcion 4</option>
-                                                            <option>Opcion 5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-								
-								
-								<div class="col-sm-10">
-                                                        <button type="submit" class="btn btn-default">Enviar Formulario</button>
-                                                    </div>
-                            </div>
-							
-                            <!-- /.col-lg-12 (nested) -->
-
-                        </div>
-                        <!-- /.row (nested) -->
-
-                    </div>
-                    <!-- /.col-lg-6 -->
-
-                    <div class="col-lg-6">
-
-                        <div class="row">
-
-                                <!-- Form Controls -->
-                            <div class="col-lg-12">
-                                
-                                <!-- /.portlet -->
-                            </div>
-							
-                            <!-- /.col-lg-12 (nested) -->
-                        </div>
-                        <!-- /.row (nested) -->
-
-                    </div>
-                    <!-- /.col-lg-6 -->
-
-                </div>
-                <!-- /.row -->
-                <!-- end ADVANCED FORM COMPONENTS MAIN ROW -->
 
             </div>
             <!-- /.page-content -->
@@ -946,8 +813,6 @@
 
     <!-- GLOBAL SCRIPTS -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!-- jQuery UI added before Bootstrap on this page for no interference -->
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="js/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="js/plugins/popupoverlay/jquery.popupoverlay.js"></script>
@@ -979,17 +844,9 @@
     <script src="js/plugins/hisrc/hisrc.js"></script>
 
     <!-- PAGE LEVEL PLUGIN SCRIPTS -->
-    <script src="js/plugins/bootstrap-tokenfield/bootstrap-tokenfield.min.js"></script>
-    <script src="js/plugins/bootstrap-tokenfield/scrollspy.js"></script>
-    <script src="js/plugins/bootstrap-tokenfield/affix.js"></script>
-    <script src="js/plugins/bootstrap-tokenfield/typeahead.min.js"></script>
-    <script src="js/plugins/bootstrap-maxlength/bootstrap-maxlength.js"></script>
-    <script src="js/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
-    <script src="js/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 
     <!-- THEME SCRIPTS -->
     <script src="js/flex.js"></script>
-    <script src="js/demo/advanced-form-demo.js"></script>
 
 </body>
 
