@@ -29,5 +29,13 @@ namespace AppTest.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AppTest.Models.Usuario> Usuarios { get; set; }
+
+        public System.Data.Entity.DbSet<AppTest.Models.Rubrica> Rubricas { get; set; }
+
+        public System.Data.Entity.DbSet<AppTest.Models.Test> Tests { get; set; }
+
+        public System.Data.Entity.DbSet<AppTest.Models.Pregunta> Preguntas { get; set; }
     }
 }

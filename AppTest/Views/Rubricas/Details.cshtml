@@ -1,0 +1,42 @@
+﻿@model AppTest.Models.Rubrica
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rubrica</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.textoRubrica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.textoRubrica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nivelDesarrollo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nivelDesarrollo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aporteNota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aporteNota)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.rubricaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
