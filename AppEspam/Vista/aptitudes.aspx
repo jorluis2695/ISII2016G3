@@ -951,7 +951,8 @@
         <!-- /#page-wrapper -->
         <!-- end MAIN PAGE CONTENT -->
 
-    </div>
+    </div>
+
     <div id="logout">
         <div class="logout-message">
             <img class="img-circle img-logout" src="img/profile-pic.jpg" alt="">
