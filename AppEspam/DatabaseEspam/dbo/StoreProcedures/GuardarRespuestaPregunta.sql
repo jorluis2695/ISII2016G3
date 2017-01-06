@@ -3,6 +3,6 @@
 	@PreguntaID int,
 	@opcion int
 AS
-	INSERT INTO PregPregunta_estudiante
+	INSERT INTO Pregunta_estudiante
 	VALUES (@PruebaID, @PreguntaID, @opcion)
 RETURN 0
