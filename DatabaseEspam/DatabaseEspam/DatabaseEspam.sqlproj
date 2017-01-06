@@ -58,17 +58,23 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="dbo\StoreProcedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Preguntas.sql" />
-    <Build Include="Test.sql" />
-    <Build Include="Convocatoria.sql" />
-    <Build Include="Test-pregunta.sql" />
-    <Build Include="Estudiantes.sql" />
-    <Build Include="Pregunta_estudiante.sql" />
-    <Build Include="Test_estudiante.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="DatabaseEspam.refactorlog" />
+    <Build Include="dbo\Tables\Convocatoria.sql" />
+    <Build Include="dbo\Tables\ConvocatoriaTest.sql" />
+    <Build Include="dbo\Tables\Estudiantes.sql" />
+    <Build Include="dbo\Tables\Pregunta_estudiante.sql" />
+    <Build Include="dbo\Tables\Preguntas.sql" />
+    <Build Include="dbo\Tables\Prueba.sql" />
+    <Build Include="dbo\Tables\Test.sql" />
+    <Build Include="dbo\Tables\Test_Pregunta.sql" />
+    <Build Include="dbo\Tables\TipoTest.sql" />
+    <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="dbo\StoreProcedures\GetTestID.sql" />
+    <Build Include="dbo\StoreProcedures\GetTest.sql" />
   </ItemGroup>
 </Project>
