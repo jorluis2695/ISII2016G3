@@ -75,5 +75,7 @@
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
     <Build Include="dbo\StoreProcedures\GetTest.sql" />
     <Build Include="dbo\StoreProcedures\GetTestID.sql" />
+    <Build Include="dbo\StoreProcedures\CrearPrueba.sql" />
+    <Build Include="dbo\StoreProcedures\GuardarRespuestaPregunta.sql" />
   </ItemGroup>
 </Project>
