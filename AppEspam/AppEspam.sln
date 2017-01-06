@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "Vista\Vista.csproj", "{6F0F53FB-694D-4BD1-B598-B0845F89476A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseEspam", "DatabaseEspam\DatabaseEspam.sqlproj", "{F99C0762-8205-44CC-BC86-2E5FF077043D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F0F53FB-694D-4BD1-B598-B0845F89476A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F0F53FB-694D-4BD1-B598-B0845F89476A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F0F53FB-694D-4BD1-B598-B0845F89476A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F0F53FB-694D-4BD1-B598-B0845F89476A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F99C0762-8205-44CC-BC86-2E5FF077043D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F99C0762-8205-44CC-BC86-2E5FF077043D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F99C0762-8205-44CC-BC86-2E5FF077043D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F99C0762-8205-44CC-BC86-2E5FF077043D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F99C0762-8205-44CC-BC86-2E5FF077043D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F99C0762-8205-44CC-BC86-2E5FF077043D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
