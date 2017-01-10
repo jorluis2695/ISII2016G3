@@ -20,6 +20,7 @@ namespace Vista
                 cmd.CommandText = "GetTest";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = con;
+                cmd.Parameters.Add("@TestId", SqlDbType.Int, 50).Value = 2;
                 con.Open();
                 reader = cmd.ExecuteReader();
                 reader.Read();
@@ -31,7 +32,7 @@ namespace Vista
                 }
                 catch
                 {
-                    string display = "Error";
+                    string display = "Error: No se encontraron tests dentro de la Base de Datos";
                     ClientScript.RegisterStartupScript(this.GetType(), "No se encontraron tests dentro de la Base de Datos", "alert('" + display + "');", true);
                 }
             }
