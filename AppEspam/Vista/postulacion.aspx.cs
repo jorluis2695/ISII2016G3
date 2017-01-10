@@ -6,11 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace Vista
 {
     public partial class postulacion : System.Web.UI.Page
     {
+        private IEnumerator result;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=DatabaseEspam;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True"))
@@ -27,7 +30,13 @@ namespace Vista
 
                 try
                 {
-                    TestEspacio.InnerHtml = "<div class=\"form-group\" > < label class=\"col-sm-2 control-label\" >" + reader.GetString(0) + "</label> < div class=\"col-sm-10\"> <div class=\"radio\"><label> <input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios1\" value =\"\" checked>" + reader.GetString(1) + "</label></div><div class=\"radio\"><label><input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios2\" value =\"\">" + reader.GetString(2) + "</label></div><div class=\"radio\"> <label><input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios3\" value =\"\" >" + reader.GetString(3) + "</label> </div><div class=\"radio\"> <label><input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios4\" value =\"\" >" + reader.GetString(4) + " </label> </div></div></div>";
+                    result = reader.GetEnumerator();
+                    
+                    do
+                    {
+                        TestEspacio.InnerHtml = "<div class=\"form-group\" > <label class=\"col-sm-2 control-label\">" + reader.GetString(0)  + "</label> <div class=\"col-sm-10\"> <div class=\"radio\"><label> <input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios1\" value =\"\">" + reader.GetString(1) + "</label></div><div class=\"radio\"><label><input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios2\" value =\"\">" + reader.GetString(2) + "</label></div><div class=\"radio\"> <label><input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios3\" value =\"\" >" + reader.GetString(3) + "</label> </div><div class=\"radio\"> <label><input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios4\" value =\"\" >" + reader.GetString(4) + " </label> </div></div></div>";
+                        
+                    } while (result.MoveNext());
                     con.Close();
                 }
                 catch
