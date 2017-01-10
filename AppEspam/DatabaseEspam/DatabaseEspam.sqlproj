@@ -77,7 +77,6 @@
     <Build Include="dbo\StoreProcedures\GetTestID.sql" />
     <Build Include="dbo\StoreProcedures\CrearPrueba.sql" />
     <Build Include="dbo\StoreProcedures\GuardarRespuestaPregunta.sql" />
-    <Build Include="Credential1.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Script1.sql" />

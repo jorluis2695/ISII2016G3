@@ -13,7 +13,7 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DatabaseEspam;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=DatabaseEspam;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True"))
             {
                 SqlCommand cmd = new SqlCommand();
                 SqlDataReader reader;
@@ -35,5 +35,6 @@ namespace Vista
                     ClientScript.RegisterStartupScript(this.GetType(), "No se encontraron tests dentro de la Base de Datos", "alert('" + display + "');", true);
                 }
             }
+        }
     }
 }
