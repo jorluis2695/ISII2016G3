@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Prueba](
-	[PruebaID] [int] NOT NULL,
+	[PruebaID] [int] NOT NULL IDENTITY,
 	[ConvocatoriaTestID] [int] NULL,
 	[Id_estudiante] [int] NULL,
 	[Fecha] [date] NULL,

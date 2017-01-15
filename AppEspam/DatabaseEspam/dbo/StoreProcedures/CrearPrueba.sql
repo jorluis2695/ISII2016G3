@@ -1,8 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[CrearPrueba]
 	@EstudianteID int,
 	@ConvocatoriaTestID int,
-	@fecha date
+	@fecha date,
+	@calif float
 AS
-	INSERT INTO Prueba (ConvocatoriaTestID, Id_estudiante, Fecha)
-	VALUES (@ConvocatoriaTestID, @EstudianteID, @fecha)
+	INSERT INTO Prueba (ConvocatoriaTestID, Id_estudiante, Fecha, Calificacion)
+	VALUES (@ConvocatoriaTestID, @EstudianteID, @fecha, @calif)
 RETURN 0
