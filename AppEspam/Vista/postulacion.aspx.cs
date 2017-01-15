@@ -31,19 +31,24 @@ namespace Vista
                 try
                 {
                     result = reader.GetEnumerator();
-                    
+                    int cont = 0;
+                    TestEspacio.InnerHtml = TestEspacio.InnerText + "<form method=\"post\">";
                     do
-                    {
-                        TestEspacio.InnerHtml = "<div class=\"form-group\" > <label class=\"col-sm-2 control-label\">" + reader.GetString(0)  + "</label> <div class=\"col-sm-10\"> <div class=\"radio\"><label> <input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios1\" value =\"\">" + reader.GetString(1) + "</label></div><div class=\"radio\"><label><input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios2\" value =\"\">" + reader.GetString(2) + "</label></div><div class=\"radio\"> <label><input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios3\" value =\"\" >" + reader.GetString(3) + "</label> </div><div class=\"radio\"> <label><input type=\"radio\" name =\"optionsRadios\" id =\"optionsRadios4\" value =\"\" >" + reader.GetString(4) + " </label> </div></div></div>";
-                        
+                    { 
+                        TestEspacio.InnerHtml = TestEspacio.InnerText  + "<div id=\"grupo"+cont+"\"> <label class=\"col-sm-2 control-label\">" + reader.GetString(0)  + "</label> <div class=\"col-sm-10\"> <div class=\"radio\"><label> <input type=\"radio\" name =\"grupo"+cont+"\" id =\"optionsRadios1\" value =\"\">" + reader.GetString(1) + "</label></div><div class=\"radio\"><label><input type=\"radio\" name =\"grupo"+cont+"\" id =\"optionsRadios2\" value =\"\">" + reader.GetString(2) + "</label></div><div class=\"radio\"> <label><input type=\"radio\" name =\"grupo"+cont+"\" id =\"optionsRadios3\" value =\"\" >" + reader.GetString(3) + "</label> </div><div class=\"radio\"> <label><input type=\"radio\" name =\"grupo"+cont+"\" id =\"optionsRadios4\" value =\"\" >" + reader.GetString(4) + " </label> </div></div></div>";
+                        cont++;
                     } while (result.MoveNext());
-                    con.Close();
+                    TestEspacio.InnerHtml = TestEspacio.InnerText + "<div class=\"col-sm-10 pull-right\"><button type = \"submit\" class=\"btn btn-default pull-right\">Enviar Formulario</button></div></form>";
+
+                           con.Close();
                 }
                 catch
                 {
                     string display = "Error: No se encontraron tests dentro de la Base de Datos";
                     ClientScript.RegisterStartupScript(this.GetType(), "No se encontraron tests dentro de la Base de Datos", "alert('" + display + "');", true);
                 }
+
+
             }
         }
     }

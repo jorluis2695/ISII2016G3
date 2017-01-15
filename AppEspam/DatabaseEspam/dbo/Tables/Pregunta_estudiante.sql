@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Pregunta_estudiante](
-	[Id] [int] NOT NULL,
+	[Id] [int] NOT NULL IDENTITY,
 	[Id_pregunta] [int] NOT NULL,
 	[PruebaID] [int] NOT NULL,
 	[opcion] [int] NOT NULL,

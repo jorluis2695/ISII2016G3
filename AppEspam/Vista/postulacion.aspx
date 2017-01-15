@@ -222,7 +222,7 @@
                                 </a>
                             </li>
 							<li>
-                                <a href="post_est.html">
+                                <a href="postulacion.aspx">
                                     <i class="fa fa-angle-double-right"></i> Prueba de Postulacion
                                 </a>
                             </li>
