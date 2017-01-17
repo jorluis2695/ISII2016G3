@@ -10,6 +10,6 @@
 namespace Vista {
     
     
-    public partial class convocatoria {
+    public partial class nuevaPrueba {
     }
 }

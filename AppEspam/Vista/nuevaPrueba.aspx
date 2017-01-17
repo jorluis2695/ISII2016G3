@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="nuevaPrueba.aspx.cs" Inherits="Vista.convocatoria" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="nuevaPrueba.aspx.cs" Inherits="Vista.nuevaPrueba"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -557,7 +557,7 @@
                     </li>
                     <!-- end SIDE NAV USER PANEL -->
                     <!-- begin SIDE NAV SEARCH -->
-                    <li class="nav-search">
+                    <!--<li class="nav-search">
                         <form role="form">
                             <input type="search" class="form-control" placeholder="Search...">
                             <button class="btn">
@@ -565,6 +565,7 @@
                             </button>
                         </form>
                     </li>
+                        -->
                     <!-- end SIDE NAV SEARCH -->
                     <!-- begin DASHBOARD LINK -->
                     
@@ -574,9 +575,9 @@
                     <!-- end CHARTS DROPDOWN -->
                     <!-- begin FORMS DROPDOWN -->
                     <li class="panel">
-                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
+                        <!--<a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
                             <i class="fa fa-edit"></i> Convocatoria <i class="fa fa-caret-down"></i>
-                        </a>
+                        </a>-->
                         <ul class="collapse nav in" id="forms">
                             <li>
                                 <a href="convocatoria.html">
@@ -627,7 +628,7 @@
                     <!-- end UI ELEMENTS DROPDOWN -->
                     <!-- begin MESSAGE CENTER DROPDOWN -->
                     
-                    </li>
+                    
                     <!-- end PAGES DROPDOWN -->
                 </ul>
                 <!-- /.side-nav -->
@@ -667,46 +668,57 @@
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="portlet-body">
-                                        <div class="row">
-                                            <div class="col-lg-offset-1 col-lg-8">
-                                                <!-- /input-group -->
-                                                <h4>Nombre del Test</h4>
-                                                <div>
-                                                    <input class="form-control" type="text" />
-                                                </div>
-												<br>
-                                                <h4>Tipo de Test</h4>
-                                                <div id="sandbox-container">
-                                                    <input type="radio" name="tipoTest" value="1" checked />Aptitud<br />
-                                                    <input type="radio" name="tipoTest" value="2"/>Postulacion<br />
-                                                </div>
-                                                <h4>Preguntas</h4>
-                                                <div id="Preguntas">
-                                                </div>
-                                                
-                                                <div class="row">
-                                                    <div class="col-lg-5 btn btn-default" id="mostrarPregunta" onclick="mostrarDiv()">Agregar Nueva</div>
-                                                </div>
-                                                <div id="nPregunta" style="display:none">
-                                                    Ingrese el nombre de la pregunta<input class="form-control" type="text" id="txtPregunta"/>
-                                                    Marque la opcion correcta <br />
-                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="1"><input class="col-lg-9" type="text" id="opt1"/></div>
-                                                    <br />
-                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="2"><input class="col-lg-9" type="text" id="opt2" /></div>
-                                                    <br />
-                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="3"><input class="col-lg-9" type="text" id="opt3" /></div>
-                                                    <br />
-                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="4"><input class="col-lg-9" type="text" id="opt4" /></div>
-                                                    <br />
-                                                    <br />
-                                                    <div class="btn btn-default col-lg-offset-2 col-lg-6" id="AgregaPregunta" onclick="agregaPregunta()">Agregar Pregunta</div>
-                                                    
+                                        <form  id="frm1" onsubmit="enviarPregunta()" method="post">
+                                            <div class="row">
+                                                <div class="col-lg-offset-1 col-lg-8">
+                                                    <!-- /input-group -->
+
+
+
+                                                    <h4>Nombre del Test</h4>
+                                                    <div>
+                                                        <input class="form-control" type="text" />
+                                                    </div>
+                                                    <br>
+                                                    <h4>Tipo de Test</h4>
+                                                    <div id="sandbox-container">
+                                                        <input type="radio" name="tipoTest" value="1" checked />Aptitud<br />
+                                                        <input type="radio" name="tipoTest" value="2" />Postulacion<br />
+                                                    </div>
+                                                    <h4>Preguntas</h4>
+
+                                                    <div id="Preguntas">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-5 btn btn-default" id="mostrarPregunta" onclick="mostrarDiv()">Agregar Nueva</div>
+                                                    </div>
+                                                    <div id="nPregunta" style="display: none">
+                                                        Ingrese el nombre de la pregunta<input class="form-control" type="text" id="txtPregunta" />
+                                                        Marque la opcion correcta
+                                                        <br />
+                                                        <div class="row">
+                                                            <input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="1"><input class="col-lg-9" type="text" id="opt1" /></div>
+                                                        <br />
+                                                        <div class="row">
+                                                            <input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="2"><input class="col-lg-9" type="text" id="opt2" /></div>
+                                                        <br />
+                                                        <div class="row">
+                                                            <input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="3"><input class="col-lg-9" type="text" id="opt3" /></div>
+                                                        <br />
+                                                        <div class="row">
+                                                            <input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="4"><input class="col-lg-9" type="text" id="opt4" /></div>
+                                                        <br />
+                                                        <br />
+                                                        <div class="btn btn-default col-lg-offset-2 col-lg-6" id="AgregaPregunta" onclick="agregaPregunta()">Agregar Pregunta</div>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <br>
-                                        <button type="submit" class="btn btn-default">Enviar Formulario</button>
-                                        <!-- /.col-lg-12 (nested) -->
+                                            <br>
+                                            <input id="Submit1" type="submit" value="submit" />
+                                            <!-- /.col-lg-12 (nested) -->
+                                        </form>
                                     </div>
                                     <!-- /.row (nested) -->
                                 </div>
@@ -737,6 +749,8 @@
             <!-- /.page-content -->
 
         </div>
+                    </div>
+                </div>
         <!-- /#page-wrapper -->
         <!-- end MAIN PAGE CONTENT -->
 
@@ -774,8 +788,6 @@
                     var espacioPreguntas = document.getElementById("Preguntas");
                     var divpregunta = document.createElement("div");
 
-                    espacioPreguntas.appendChild(divpregunta);
-
                     divpregunta.setAttribute("class", "pregunta");
                     var nomPreg = document.createElement("H5");
                     nomPreg.innerHTML = "Pregunta: " + document.getElementById("txtPregunta").value;
@@ -790,7 +802,6 @@
 
                     espacio = document.createElement("br");
                     
-
                     divpregunta.appendChild(nomPreg);
                     divpregunta.appendChild(opt);
                     divpregunta.appendChild(espacio);
@@ -800,8 +811,10 @@
                     divpregunta.appendChild(espacio);
                     divpregunta.appendChild(opt3);
                     divpregunta.appendChild(espacio);
-                    
-                    document.getElementById("txtPregunta").value="";
+
+                    espacioPreguntas.appendChild(divpregunta);
+
+                    document.getElementById("txtPregunta").value = "";
                     document.getElementById("opt1").value="";
                     document.getElementById("opt2").value="";
                     document.getElementById("opt3").value="";
