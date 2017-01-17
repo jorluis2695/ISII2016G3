@@ -681,21 +681,26 @@
                                                     <input type="radio" name="tipoTest" value="2"/>Postulacion<br />
                                                 </div>
                                                 <h4>Preguntas</h4>
+                                                <div id="Preguntas">
+                                                </div>
+                                                
                                                 <div class="row">
                                                     <div class="col-lg-5 btn btn-default" id="mostrarPregunta" onclick="mostrarDiv()">Agregar Nueva</div>
                                                 </div>
                                                 <div id="nPregunta" style="display:none">
-                                                    Ingrese el nombre de la pregunta<input class="form-control" type="text" />
+                                                    Ingrese el nombre de la pregunta<input class="form-control" type="text" id="txtPregunta"/>
                                                     Marque la opcion correcta <br />
-                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta"><input class="col-lg-9" type="text" /></div>
+                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="1"><input class="col-lg-9" type="text" id="opt1"/></div>
                                                     <br />
-                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta"><input class="col-lg-9" type="text" /></div>
+                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="2"><input class="col-lg-9" type="text" id="opt2" /></div>
                                                     <br />
-                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta"><input class="col-lg-9" type="text" /></div>
+                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="3"><input class="col-lg-9" type="text" id="opt3" /></div>
                                                     <br />
-                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta"><input class="col-lg-9" type="text" /></div>
+                                                    <div class="row"><input class="col-lg-offset-1 col-lg-1" type="radio" name="n_pregunta" value="4"><input class="col-lg-9" type="text" id="opt4" /></div>
+                                                    <br />
                                                     <br />
                                                     <div class="btn btn-default col-lg-offset-2 col-lg-6" id="AgregaPregunta" onclick="agregaPregunta()">Agregar Pregunta</div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -765,14 +770,45 @@
                             document.getElementById("nPregunta").style.display = "none";
                         }
                     }
+                function agregaPregunta(){
+                    var espacioPreguntas = document.getElementById("Preguntas");
+                    var divpregunta = document.createElement("div");
+
+                    espacioPreguntas.appendChild(divpregunta);
+
+                    divpregunta.setAttribute("class", "pregunta");
+                    var nomPreg = document.createElement("H5");
+                    nomPreg.innerHTML = "Pregunta: " + document.getElementById("txtPregunta").value;
+                    var opt = document.createElement("H6");
+                    opt.innerHTML = "Opcion 1: " + document.getElementById("opt1").value;
+                    var opt1 = document.createElement("H6");
+                    opt1.innerHTML = "Opcion 2: " + document.getElementById("opt2").value;
+                    var opt2 = document.createElement("H6");
+                    opt2.innerHTML = "Opcion 3: " +  document.getElementById("opt3").value;
+                    var opt3 = document.createElement("H6");
+                    opt3.innerHTML = "Opcion 4: " + document.getElementById("opt4").value;
+
+                    espacio = document.createElement("br");
                     
-                    /*$('#mostrarPregunta').click(function () {
-                        if ($('#nPregunta').hide == true) {
-                            $('#nPregunta').show();
-                        } else {
-                            $('#nPregunta').hide();
-                        }
-                        
-                    });*/
+
+                    divpregunta.appendChild(nomPreg);
+                    divpregunta.appendChild(opt);
+                    divpregunta.appendChild(espacio);
+                    divpregunta.appendChild(opt1);
+                    divpregunta.appendChild(espacio);
+                    divpregunta.appendChild(opt2);
+                    divpregunta.appendChild(espacio);
+                    divpregunta.appendChild(opt3);
+                    divpregunta.appendChild(espacio);
+                    
+                    document.getElementById("txtPregunta").value="";
+                    document.getElementById("opt1").value="";
+                    document.getElementById("opt2").value="";
+                    document.getElementById("opt3").value="";
+                    document.getElementById("opt4").value = "";
+                    mostrarDiv();
+                }
+
                     </script>
+
 </asp:Content>
