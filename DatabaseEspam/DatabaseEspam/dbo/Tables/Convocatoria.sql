@@ -2,7 +2,7 @@
 	[Id] [int] NOT NULL,
 	[fecha_inicio] [date] NULL,
 	[fecha_fin] [date] NULL,
-	[descrpcion] [nvarchar](50) NULL,
+	[descripcion] TEXT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

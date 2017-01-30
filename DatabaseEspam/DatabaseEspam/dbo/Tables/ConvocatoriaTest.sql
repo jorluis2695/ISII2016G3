@@ -1,6 +1,5 @@
 ﻿CREATE TABLE [dbo].[ConvocatoriaTest](
 	[ConvocatoriaTestID] [int] NOT NULL,
-	[Descripcion] [nchar](10) NULL,
 	[TestID] [int] NULL,
 	[ConvocatoriaID] [int] NULL,
  CONSTRAINT [PK_ConvocatoriaTest] PRIMARY KEY CLUSTERED 

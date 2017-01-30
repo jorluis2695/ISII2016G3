@@ -1,9 +1,9 @@
 ﻿CREATE TABLE [dbo].[Estudiantes](
-	[Id] [int] NOT NULL,
+	[Id] [int] NOT NULL IDENTITY,
 	[Nombres] [nvarchar](50) NULL,
 	[Apellidos] [nvarchar](50) NULL,
 	[Carrera] [nvarchar](50) NULL,
-	[Cedula] [nchar](15) NULL,
+	[Cedula] [nchar](10) NULL,
 	[Matricula] [nchar](15) NULL,
 	[Genero] [nchar](15) NULL,
 PRIMARY KEY CLUSTERED 
