@@ -9,7 +9,10 @@ namespace AppTest.Models
     {
         public int preguntaID { get; set; }
         public string textoPregunta { get; set; }
-        public List<string> respuestas { get; set; }
-        public Rubrica rubricaPregunta{ get; set; }
+        public string op1 { get; set; }
+        public string op2 { get; set; }
+        public string op3 { get; set; }
+        public string op4 { get; set; }
+        public int opCorrecta { get; set; }
     }
 }
