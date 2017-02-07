@@ -122,6 +122,15 @@ namespace AppTest.Controllers
             
         }
 
+        [HttpPost, ActionName("AgregarPregunta")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AgregarPreguntaTest(int id)
+        {
+            Test t1 = db.Tests.Find(id);
+            t1.preguntasTest.Add();
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
