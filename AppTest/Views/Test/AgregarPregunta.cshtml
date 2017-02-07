@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AppTest.Models.Pregunta>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        @Html.ActionLink("Create New", "../Preguntas/Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Agregar")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.textoPregunta)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.CheckBox("Agregar", new { id = item.preguntaID })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.textoPregunta)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+}
+
