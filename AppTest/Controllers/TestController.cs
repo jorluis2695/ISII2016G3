@@ -124,10 +124,11 @@ namespace AppTest.Controllers
 
         [HttpPost, ActionName("AgregarPregunta")]
         [ValidateAntiForgeryToken]
-        public ActionResult AgregarPreguntaTest(int id)
+        public ActionResult AgregarPreguntaTest(int idTest, int id)
         {
-            Test t1 = db.Tests.Find(id);
-            t1.preguntasTest.Add();
+            Test t1 = db.Tests.Find(idTest);
+            Pregunta p = db.Preguntas.Find(id);
+            t1.preguntasTest.Add(p);
             return View();
         }
 
