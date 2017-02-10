@@ -3,7 +3,18 @@
 }
 
 <div class="container">
+    <script>
+        function dropdown(val) {
+            var y = document.getElementsByClassName('btn btn-default dropdown-toggle');
+            var aNode = y[0].innerHTML = val + ' <span class="caret"></span>';
+        }
 
+        function seleccion() {
+            if ($('#txt_name').val()){
+
+            }
+        }
+    </script>
 
     <div class="row">
 
@@ -76,9 +87,9 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="#">Profesor</a></li>
-                            <li><a href="#">Estudiante</a></li>
-                            <li><a href="#">Administrador</a></li>
+                            <li onclick="dropdown(this.innerHTML);"><a href="#">Profesor</a></li>
+                            <li onclick="dropdown(this.innerHTML);"><a href="#">Estudiante</a></li>
+                            <li onclick="dropdown(this.innerHTML);"><a href="#">Administrador</a></li>
                         </ul>
                     </div>
 
@@ -90,7 +101,7 @@
 
             </form>
 
-            <button type="Submit" class="btn btn-default pull-right">Ingresar</button>
+            <button type="Submit" class="btn btn-default pull-right" onclick="seleccion();">Ingresar</button>
 
         </div>
     </div>
