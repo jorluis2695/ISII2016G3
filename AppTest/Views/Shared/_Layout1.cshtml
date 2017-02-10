@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>APOLO</title>
+    @Styles.Render("~/Content/css")
+    <!-- PACE LOAD BAR PLUGIN - This creates the subtle load bar effect at the top of the page. -->
+    @Scripts.Render("~/Scripts/plugins/pace/pace.js")
+
+    <!-- GLOBAL STYLES - Include these on every page. -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel="stylesheet" type="text/css">
+    @Styles.Render("~/icons/font-awesome/css/font-awesome.min.css")
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    @Styles.Render("~/Content/plugins/messenger/messenger.css")
+    @Styles.Render("~/Content/plugins/messenger/messenger-theme-flat.css")
+    <!-- THEME STYLES - Include these on every page. -->
+    @Styles.Render("~/Content/style.css")
+    @Styles.Render("~/Content/plugins.css")
+    @Styles.Render("~/Content/plugins/messenger/messenger.css")
+    <!-- THEME DEMO STYLES - Use these styles for reference if needed. Otherwise they can be deleted. -->
+    @Styles.Render("~/Content/demo.css")
+    @Scripts.Render("~/Scripts/jquery.min.js")
+    @Scripts.Render("~/Scripts/plugins/bootstrap/bootstrap.min.js")
+    @Scripts.Render("~/Scripts/bootstrap-confirmation.js")
+    @Scripts.Render("~/Scripts/plugins/messenger/messenger.min.js")
+    @Scripts.Render("~/Scripts/plugins/datatables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/plugins/datatables/datatables-bs3.js")
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        function sucessMessage(success) {
+
+            Messenger.options = {
+                extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+                theme: 'flat'
+            }
+
+            Messenger().post({
+                message: success,
+                type: 'success',
+                showCloseButton: true
+            });
+        }
+
+        function errorMessage(errorMessage) {
+            Messenger.options = {
+                extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+                theme: 'flat'
+            }
+
+            Messenger().post({
+                message: errorMessage,
+                type: 'error',
+                showCloseButton: true
+            });
+        }
+    </script>
+    </head>
+    <body>
+
+
+        <div id="wrapper">
+
+            <!-- begin TOP NAVIGATION -->
+            <nav class="navbar-top" role="navigation">
+
+                <!-- begin BRAND HEADING -->
+                <div class="navbar-header ">
+                    <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <i class="fa fa-bars"></i>Menu
+                    </button>
+                    <!--<div class="navbar-brand">
+                        --%>
+                        <a href="#">
+                            <img src="../img/flex-admin-logo.png" class="img-responsive" alt="" width="258" height="55">
+                        </a>
+                        <%--
+                    </div>-->
+
+                </div>
+
+
+                <div class="nav-top">
+
+                    <!-- begin LEFT SIDE WIDGETS -->
+                    <ul class="nav navbar-left">
+                        <li class="tooltip-sidebar-toggle">
+                            <a href="#" id="sidebar-toggle" data-toggle="tooltip" data-placement="right" title="Sidebar Toggle">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </li>
+                        <!-- You may add more widgets here using <li> -->
+                    </ul>
+                    <!-- end LEFT SIDE WIDGETS -->
+                    <!--<p style="color:white;text-align:center;padding:15PX 10PX 5PX 5PX;" class="col-lg-8">
+                        APOLO - Aplicación orientada a logros
+                    </p>-->
+
+
+                    <!-- begin MESSAGES/ALERTS/TASKS/USER ACTIONS DROPDOWNS -->
+
+                    <ul class="nav navbar-right">
+                        <!-- begin USER ACTIONS DROPDOWN -->
+                        <li class="dropdown">
+                            <!--<div class="col-lg-10">
+                                <a>
+                                    <img src="../img/flex-admin-logo.png" class="img-responsive" alt="" width="258" height="55">
+                                </a>
+                            </div>
+                            <div class="col-lg-2"></div>-->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i><i class="fa fa-caret-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-user"></i>Perfil
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-gear"></i>Ajustes
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a class="logout_open" href="#logout">
+                                        <i class="fa fa-sign-out"></i>Cerrar Sesión
+                                        <%--<strong><% Response.Write(Session["nombres"].ToString()); %> <br>  <% Response.Write(Session["apellido"].ToString()); %> </strong>--%>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- /.dropdown-menu -->
+                        </li>
+
+
+                    </ul>
+                </div>
+                <!-- /.nav-top -->
+
+
+            </nav>
+            <!-- /.navbar-top -->
+            <!-- end TOP NAVIGATION -->
+            <!-- begin SIDE NAVIGATION -->
+            <nav class="navbar-side" role="navigation">
+                <div class="navbar-collapse sidebar-collapse collapse">
+                    <ul id="side" class="nav navbar-nav side-nav">
+                        <!-- begin SIDE NAV USER PANEL -->
+                        <li class="side-user hidden-xs">
+                            <asp:Image ID="imgProfileAll" CssClass="img-circle" runat="server" />
+                            <p class="welcome">
+                                <i class="fa fa-key"></i>Sesión iniciada como
+                            </p>
+                            <p class="name tooltip-sidebar-logout">
+                                Nombre
+                                <span class="last-name">
+                                    Apellido
+                                </span><a style="color: inherit" class="logout_open" href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
+                            </p>
+                            <div class="clearfix"></div>
+                        </li>
+                        <!-- end SIDE NAV USER PANEL -->
+
+
+                    </ul>
+                    <!-- /.side-nav -->
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+            <!-- /.navbar-side -->
+            <!-- end SIDE NAVIGATION -->
+            <!-- begin MAIN PAGE CONTENT -->
+            <div id="page-wrapper">
+
+                <div class="page-content">
+
+                    <!-- begin Contenido -->
+                    <!-- /.row -->
+                    <div class="container body-content">
+                        @RenderBody()
+                        <hr />
+                        <footer>
+                            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+                        </footer>
+                    </div>
+
+
+                    <!-- end contenido -->
+
+                </div>
+                <!-- /.page-content -->
+
+            </div>
+            <!-- /#page-wrapper -->
+            <!-- end MAIN PAGE CONTENT -->
+
+        </div>
+        <!-- /#wrapper -->
+        <div id="footer">
+            <p>
+                <img style="width:21px; " src="../img/logo.ico" />&nbsp;© 2016 Unidad de Producción de Software - UPS. &nbsp; APOLO - Aplicación orientada a logros
+            </p>
+        </div>
+        <!-- GLOBAL SCRIPTS -->
+
+        @Scripts.Render("~/Scripts/plugins/slimscroll/jquery.slimscroll.min.js")
+        @Scripts.Render("~/Scripts/plugins/popupoverlay/jquery.popupoverlay.js")
+        @Scripts.Render("~/Scripts/plugins/popupoverlay/defaults.js")
+
+        <!-- Logout Notification Box -->
+        <div id="logout">
+            <div class="logout-message">
+                <asp:Image ID="imgProfileLogout" CssClass="img-circle img-logout" runat="server" />
+                <h3>
+                    <i class="fa fa-sign-out text-green"></i>Estas seguro?
+                </h3>
+                <p>Seleccione "Cerrar Sesión" para salir.</p>
+                <ul class="list-inline">
+                    <li>
+                        <a href="/logIn.aspx" class="btn btn-green">
+                            <strong>Cerrar Sesión</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <button class="logout_close btn btn-green">Cancelar</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /#logout -->
+        <!-- Flex Modal -->
+        <div class="modal modal-flex fade" id="detalles" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="flexModalLabel">Actualizar datos</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Es necesario que actualice su información personal.</h4>
+                        <p>
+                            En la esquina superior derecho encontrará un menu con las opciones de perfil,
+                            en las que encontrara funciones para actualizar foto de perfil, contraseña y datos personales,
+                            por favor de click para abrir las opciones.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
+        </div>
+        
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+        @Scripts.Render("~/Scripts/plugins/popupoverlay/logout.js")
+        @Scripts.Render("~/Scripts/plugins/hisrc/hisrc.js")
+        @Scripts.Render("~/Scripts/plugins/fullcalendar/fullcalendar.min.js")
+        @Scripts.Render("~/Scripts/plugins/messenger/messenger.min.js")
+        @Scripts.Render("~/Scripts/plugins/messenger/messenger-theme-flat.js")
+        @Scripts.Render("~/Scripts/plugins/messenger/messenger-theme-flat.js")
+        @Scripts.Render("~/Scripts/flex.js")
+        @Scripts.Render("~/Scripts/demo/notifications-demo.js")
+        @Scripts.Render("~/Scripts/plugins/easypiechart/jquery.easypiechart.min.js")
+
+        @RenderSection("scripts", required: false)
+    </body>
+
+</html>
