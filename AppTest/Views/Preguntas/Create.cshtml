@@ -2,9 +2,12 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
 }
 
-<h2>Create</h2>
+<br />
+
+<h2>Añadir nueva Pregunta</h2>
 
 
 @using (Html.BeginForm()) 
@@ -72,9 +75,25 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar al Banco de Preguntas", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+@section Widgets{
+<li class="panel">
+    <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
+        <i class="fa fa-edit"></i> Menu de Preguntas <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="collapse nav in" id="forms">
+        <li>
+            <a href="@Url.Action("Index")">
+                <i class="fa fa-angle-double-right"></i> Banco de Preguntas
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("Create")">
+                <i class="fa fa-angle-double-right"></i> Añadir una Nueva Pregunta
+            </a>
+        </li>
+    </ul>
+</li>
 }

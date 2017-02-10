@@ -2711,7 +2711,7 @@
 			 * sZeroRecords - assuming that is given.
 			 */
 			if ( !oLanguage.sEmptyTable && oLanguage.sZeroRecords &&
-				oDefaults.sEmptyTable === "No hay datos disponibles en la tabla")
+				oDefaults.sEmptyTable === "No data available in table" )
 			{
 				_fnMap( oLanguage, oLanguage, 'sZeroRecords', 'sEmptyTable' );
 			}
@@ -9182,7 +9182,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "Primero",
+				"sFirst": "First",
 
 
 				/**
@@ -9204,7 +9204,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "Último",
+				"sLast": "Last",
 
 
 				/**
@@ -9225,7 +9225,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Siguiente",
+				"sNext": "Next",
 
 
 				/**
@@ -9246,7 +9246,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Anterior"
+				"sPrevious": "Previous"
 			},
 
 			/**
@@ -9267,7 +9267,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No hay datos disponibles en la tabla",
+			"sEmptyTable": "No data available in table",
 
 
 			/**
@@ -9288,7 +9288,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Mostrando del _START_ al _END_  ( _TOTAL_ registros)",
+			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
 
 
 			/**
@@ -9307,7 +9307,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Mostrando 0 a 0 de 0 registros",
+			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
 
 
 			/**
@@ -9430,7 +9430,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLoadingRecords": "Cargando...",
+			"sLoadingRecords": "Loading...",
 
 
 			/**
@@ -9482,7 +9482,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Buscar:",
+			"sSearch": "Search:",
 
 
 			/**
@@ -9525,7 +9525,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No se encontraron resultados"
+			"sZeroRecords": "No matching records found"
 		},
 
 

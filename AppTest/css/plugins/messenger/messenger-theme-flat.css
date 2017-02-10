@@ -298,9 +298,7 @@ ul.messenger-theme-flat .messenger-message .messenger-close:active {
 /* line 57, ../../src/sass/messenger-theme-flat.sass */
 ul.messenger-theme-flat .messenger-message .messenger-actions {
   float: none;
-  margin: 0px 0px 0px 0px;
-  height: 0px;
-
+  margin-top: 10px;
 }
 /* line 61, ../../src/sass/messenger-theme-flat.sass */
 ul.messenger-theme-flat .messenger-message .messenger-actions a {
@@ -317,7 +315,6 @@ ul.messenger-theme-flat .messenger-message .messenger-actions a {
   margin-right: 10px;
   padding: 4px 11px 6px;
   text-transform: capitalize;
-  visibility: hidden; 
 }
 /* line 72, ../../src/sass/messenger-theme-flat.sass */
 ul.messenger-theme-flat .messenger-message .messenger-actions a:hover {

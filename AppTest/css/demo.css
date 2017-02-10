@@ -91,16 +91,21 @@
     height: 250px;
 }
 
+@media(min-width:768px) {
+    #map {
+        height: 500px;
+    }
+}
 
 /* Fixed Height Dashboard Demo Styles */
 
 .dash-demo-tile {
-    height: 450px;
+    height: 250px;
     text-align: center;
 }
 
 .dash-demo-tile h4 {
-    text-align: center;
+    text-align: left;
 }
 
 #morris-chart-dashboard {

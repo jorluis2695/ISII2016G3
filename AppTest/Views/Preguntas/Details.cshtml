@@ -2,9 +2,12 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
 }
 
-<h2>Details</h2>
+<br />
+
+<h2>Detalles</h2>
 
 <div>
     <h4>Pregunta</h4>
@@ -61,6 +64,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.preguntaID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.preguntaID }) |
+    @Html.ActionLink("Regresar al Banco de Preguntas", "Index")
 </p>

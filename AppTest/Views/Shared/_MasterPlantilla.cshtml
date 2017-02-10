@@ -16,31 +16,38 @@
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
-	@Styles.Render("~/css/plugins/messenger/messenger.css")
-	@Styles.Render("~/css/plugins/messenger/messenger-theme-flat.css")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+	@Styles.Render("~/css/plugins/pace/pace.css")
+	@Scripts.Render("~/js/plugins/pace/pace.js")
+	
+	
+	
 	@Styles.Render("~/css/plugins/bootstrap/css/bootstrap.min.css")
 	@Styles.Render("~/css/font.css")
-	@Styles.Render("~/css/plugins/pace/pace.css")
+	
 	@Styles.Render("~/icons/font-awesome/css/font-awesome.min.css")
+	<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet">
+	@Styles.Render("css/plugins/bootstrap-tokenfield/tokenfield-typeahead.css")
+	@Styles.Render("css/plugins/bootstrap-tokenfield/bootstrap-tokenfield.css")
+	@Styles.Render("css/plugins/bootstrap-datepicker/datepicker3.css")
 	@Styles.Render("~/css/style.css")
 	@Styles.Render("~/css/plugins.css")
-	@Styles.Render("~/css/plugins/messenger/messenger.css")
-	@Styles.Render("~/css/plugins/messenger/messenger-theme-flat.css")
 	@Styles.Render("~/css/demo.css")
     @Scripts.Render("~/js/jquery.min.js")
+
 	@Scripts.Render("~/js/plugins/bootstrap/bootstrap.min.js")
-	@Scripts.Render("~/js/plugins/pace/pace.js")
+	
 	@Scripts.Render("~/js/bootstrap-confirmation.js")
-	@Scripts.Render("~/js/plugins/messenger/messenger.min.js")
 	@Scripts.Render("~/js/plugins/datatables/jquery.dataTables.js")
 	@Scripts.Render("~/js/plugins/datatables/datatables-bs3.js")
-	@Scripts.Render("~/js/inicio.js")
+	
+
 	
 </head>
 
 <body>
-
-
+    
     <div id="wrapper">
 
         <!-- begin TOP NAVIGATION -->
@@ -71,6 +78,7 @@
                             <i class="fa fa-bars"></i>
                         </a>
                     </li>
+					
                     <!-- You may add more widgets here using <li> -->
                 </ul>
                 <!-- end LEFT SIDE WIDGETS -->
@@ -128,6 +136,7 @@
         <!-- /.navbar-top -->
         <!-- end TOP NAVIGATION -->
         <!-- begin SIDE NAVIGATION -->
+		
         <nav class="navbar-side" role="navigation">
             <div class="navbar-collapse sidebar-collapse collapse">
                 <ul id="side" class="nav navbar-nav side-nav">
@@ -146,13 +155,15 @@
                         <div class="clearfix"></div>
                     </li>
                     <!-- end SIDE NAV USER PANEL -->
-
+					
+					@RenderSection("Widgets", false)
 
                 </ul>
                 <!-- /.side-nav -->
             </div>
             <!-- /.navbar-collapse -->
         </nav>
+		
         <!-- /.navbar-side -->
         <!-- end SIDE NAVIGATION -->
         <!-- begin MAIN PAGE CONTENT -->
@@ -236,10 +247,7 @@
     <!-- PAGE LEVEL PLUGIN SCRIPTS -->
     <script src="~/js/plugins/fullcalendar/fullcalendar.min.js"></script>
     <!-- HubSpot Messenger -->
-    <script src="js/plugins/messenger/messenger.min.js"></script>
-
-
-    <script src="js/plugins/messenger/messenger-theme-flat.js"></script>
+   
     <!-- THEME SCRIPTS -->
     <script src="~/js/flex.js"></script>
     
@@ -248,7 +256,7 @@
     <script src="~/js/plugins/easypiechart/jquery.easypiechart.min.js"></script>
     <asp:ContentPlaceHolder ID="ContentScript" runat="server">
     </asp:ContentPlaceHolder>
-    
+   
 
 </body>
 

@@ -1,7 +1,6 @@
 // Flex Admin Demo Chart JavaScript
 
 //Morris Area Chart
-/*
 var sales_data = [
 {date: '2014-1-25', productA: 80.26, productB: 78.26, productC: 79.91, productD: 81.63},
 {date: '2014-1-26', productA: 48.34, productB: 50.62, productC: 51.34, productD: 49.35},
@@ -37,11 +36,10 @@ dateFormat: function(date) {
 Morris.Donut({
 element: 'morris-chart-donut',
 data: [
- {label: "Logro A", value: 85.5},
- { label:"Logro B", value: 75 },
- { label: "Logro C", value: 80.5 },
- { label: "Logro D", value: 70.5 },
- { label: "Logro E", value: 75 }
+ {label: "Referrals", value: 42.7},
+ {label: "Direct", value: 8.3},
+ {label: "Social", value: 12.8},
+ {label: "Organic", value: 36.2}
 ],
 resize: true,
 colors: ['#16a085','#2980b9', '#f39c12', '#e74c3c'],
@@ -106,17 +104,17 @@ resize: true
 Morris.Bar({
 element: 'morris-chart-bar',
 data: [
-  { y: 'Exp/Otros', a: 2},
-  { y: 'TrabajoG', a: 1.5},
-  { y: 'TrabajoInv', a: 1},
-  { y: 'Pruebas', a: 1.8},
-  { y: 'Examen', a: 1.9}
-  
+  { y: '2006', a: 100, b: 90 },
+  { y: '2007', a: 75,  b: 65 },
+  { y: '2008', a: 50,  b: 40 },
+  { y: '2009', a: 75,  b: 65 },
+  { y: '2010', a: 50,  b: 40 },
+  { y: '2011', a: 75,  b: 65 },
+  { y: '2012', a: 100, b: 90 }
 ],
 xkey: 'y',
-ykeys: ['a'],
-labels: ['Total'],
-barColors: ['#8e44ad'],
+ykeys: ['a', 'b'],
+labels: ['Series A', 'Series B'],
+barColors: ['#8e44ad','#e74c3c'],
 resize: true
 });
-*/
