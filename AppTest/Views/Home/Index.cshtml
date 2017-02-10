@@ -10,9 +10,7 @@
         }
 
         function seleccion() {
-            if ($('#txt_name').val()){
 
-            }
         }
     </script>
 
@@ -86,7 +84,7 @@
 
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="seleccion">
                             <li onclick="dropdown(this.innerHTML);"><a href="#">Profesor</a></li>
                             <li onclick="dropdown(this.innerHTML);"><a href="#">Estudiante</a></li>
                             <li onclick="dropdown(this.innerHTML);"><a href="#">Administrador</a></li>
@@ -101,7 +99,7 @@
 
             </form>
 
-            <button type="Submit" class="btn btn-default pull-right" onclick="seleccion();">Ingresar</button>
+            <button type="Submit" class="btn btn-default pull-right"  onclick="seleccion();">Ingresar</button>
 
         </div>
     </div>
