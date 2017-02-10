@@ -6,7 +6,7 @@
 }
 
 <br />
-<h2>Create</h2>
+<h2>Crear una nueva Convocatoria</h2>
 
 
 @using (Html.BeginForm()) 
@@ -53,16 +53,32 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Crear" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar a la Lista", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+@section Widgets{
+    <li class="panel">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
+            <i class="fa fa-edit"></i> Menu de Tests <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse nav in" id="forms">
+            <li>
+                <a href="@Url.Action("Index")">
+                    <i class="fa fa-angle-double-right"></i> Lista de Convocatorias
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Create")">
+                    <i class="fa fa-angle-double-right"></i> Añadir una nueva Convocatoria
+                </a>
+            </li>
+        </ul>
+    </li>
 }

@@ -2,9 +2,12 @@
 
 @{
     ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
 }
 
-<h2>Edit</h2>
+<br />
+
+<h2>Editar Convocatoria</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +15,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Convocatoria</h4>
+ 
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.convocatoriaID)
@@ -20,7 +23,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.fechaInicio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control", Type = "Date" } })
                 @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +31,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.fechaFin, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.fechaFin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.fechaFin, new { htmlAttributes = new { @class = "form-control", Type = "Date" } })
                 @Html.ValidationMessageFor(model => model.fechaFin, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -53,16 +56,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar a la lista de Convocatorias", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
