@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[ConvocatoriaTest](
-	[ConvocatoriaTestID] [int] NOT NULL,
+	[ConvocatoriaTestID] [int] NOT NULL IDENTITY,
 	[TestID] [int] NULL,
 	[ConvocatoriaID] [int] NULL,
  CONSTRAINT [PK_ConvocatoriaTest] PRIMARY KEY CLUSTERED 
