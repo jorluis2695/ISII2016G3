@@ -1,6 +1,4 @@
 ﻿@model IEnumerable<AppTest.Models.Pregunta>
-
-
 @{
     ViewBag.Title = "Index";
 }
@@ -29,7 +27,8 @@
                     
                 </td>
                 <td>
-                    @Html.ActionLink("Agregar","AgregarPregunta" ,new { id = item.preguntaID }, new AjaxOptions { HttpMethod = "POST" });
+                    @Ajax.ActionLink("Agregar", "AgregarPregunta",new { int.Parse(Request.Url.Segments.Last().Split('?')[0]) , item.preguntaID }, new AjaxOptions { HttpMethod = "POST" });
+                    <!--Html.ActionLink("Agregar", "AgregarPregunta", new { id = Request.Url.Segments.Last() ; idP = item.preguntaID }, new AjaxOptions { HttpMethod = "POST" });-->
                 </td>
             </tr>
         }

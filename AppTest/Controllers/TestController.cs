@@ -116,21 +116,25 @@ namespace AppTest.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<ActionResult> AgregarPregunta(int id)
+        [HttpPost]
+        [ActionName("AgregarPregunta")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> AgregarPreguntaTest(int? id,int?idP)
         {
+            //int idTest = int.Parse(Request.Url.Segments.Last().Split('?')[0]);
+            Test t1 = db.Tests.Find(id);
+            Pregunta p = db.Preguntas.Find(idP);
+            t1.preguntasTest.Add(p);
             return View(await db.Preguntas.ToListAsync());
+        }
+
+        public async Task<ActionResult> AgregarPregunta(int? id)
+        {
+           return View(await db.Preguntas.ToListAsync());
             
         }
 
-        [HttpPost, ActionName("AgregarPregunta")]
-        [ValidateAntiForgeryToken]
-        public ActionResult AgregarPreguntaTest(int idTest, int id)
-        {
-            Test t1 = db.Tests.Find(idTest);
-            Pregunta p = db.Preguntas.Find(id);
-            t1.preguntasTest.Add(p);
-            return View();
-        }
+        
 
         protected override void Dispose(bool disposing)
         {
