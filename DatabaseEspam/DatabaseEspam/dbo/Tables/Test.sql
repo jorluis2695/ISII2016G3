@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Test](
-	[TestID] [int] NOT NULL,
+	[TestID] [int] NOT NULL IDENTITY,
 	[TipoTestID] [int] NULL,
 	[fecha_creacion] [date] NULL,
 [tiempo] INT NULL, 

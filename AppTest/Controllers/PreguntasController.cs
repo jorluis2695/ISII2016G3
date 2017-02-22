@@ -41,6 +41,10 @@ namespace AppTest.Controllers
         {
             return View();
         }
+        public ActionResult Crear()
+        {
+            return View();
+        }
 
         // POST: Preguntas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -59,6 +63,7 @@ namespace AppTest.Controllers
             return View(pregunta);
         }
 
+       
         // GET: Preguntas/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {

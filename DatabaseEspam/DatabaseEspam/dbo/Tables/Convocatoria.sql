@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Convocatoria](
-	[Id] [int] NOT NULL,
+	[Id] [int] NOT NULL IDENTITY,
 	[fecha_inicio] [date] NULL,
 	[fecha_fin] [date] NULL,
 	[descripcion] TEXT NULL,

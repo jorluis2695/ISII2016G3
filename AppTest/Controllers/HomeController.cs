@@ -26,5 +26,9 @@ namespace AppTest.Controllers
 
             return View();
         }
+        public ActionResult Inicio()
+        {
+            return View();
+        }
     }
 }
