@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[Test](
+	[TestID] [int] NOT NULL IDENTITY,
+	[TipoTestID] [int] NULL,
+	[fecha_creacion] [date] NULL,
+	[tiempo] INT NULL, 
+    PRIMARY KEY CLUSTERED 
+(
+	[TestID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Test]  WITH CHECK ADD  CONSTRAINT [FK_Test_TipoTest] FOREIGN KEY([TipoTestID])
+REFERENCES [dbo].[TipoTest] ([TipoTestId])
+GO
+
+ALTER TABLE [dbo].[Test] CHECK CONSTRAINT [FK_Test_TipoTest]
