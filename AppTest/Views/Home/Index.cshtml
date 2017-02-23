@@ -1,22 +1,13 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
+    Layout = "~/Views/Shared/_loginLayout.cshtml";
 }
 
 <div class="container">
-    <script>
-        function dropdown(val) {
-            var y = document.getElementsByClassName('btn btn-default dropdown-toggle');
-            var aNode = y[0].innerHTML = val + ' <span class="caret"></span>';
-        }
-
-        function seleccion() {
-
-        }
-    </script>
-
     <div class="row">
 
-        <div class="col-md-9 ">
+        <div class="col-md-9 " style="padding-top: 50px;">
 
             <div id="carousel-fotos" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -30,7 +21,7 @@
                 <div class="carousel-inner" role="listbox">
 
                     <div class="item active">
-                        <img src="@Url.Content("~/images/matriz.jpg")">
+                      <img src="@Url.Content("~/images/matriz.jpg")">
                         <div class="carousel-caption">
                             Conferencia cambio matriz productiva ESPAM-Calceta Manabí por la Vicepresidencia del Ecuador
                         </div>
@@ -63,44 +54,49 @@
             </div>
         </div>
 
-        <div class="col-md-3 alert alert-info">
 
-            <form class="navbar-form navbar-left " role="search">
-                <div class="form-group ">
-                    <h4>Usuario</h4>
-                    <input type="text" class="form-control" placeholder="username">
-                    <br>
-                    <br>
 
-                    <h4>Contraseña</h4>
-                    <input type="text" class="form-control" placeholder="password">
-                    <br>
-                    <br>
 
-                    <h4>Ingresar como</h4>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Estudiante
-
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="seleccion">
-                            <li onclick="dropdown(this.innerHTML);"><a href="#">Profesor</a></li>
-                            <li onclick="dropdown(this.innerHTML);"><a href="#">Estudiante</a></li>
-                            <li onclick="dropdown(this.innerHTML);"><a href="#">Administrador</a></li>
-                        </ul>
+        <div class="col-md-3">
+            <div class="login-banner text-center">
+                <h1><i class="fa fa-gears"></i> ESPAM-MFL</h1>
+            </div>
+            <div class="portlet portlet-green">
+                <div class="portlet-heading login-heading">
+                    <div class="portlet-title">
+                        <h4>
+                            <strong>Inicia Sesión o Registrate</strong>
+                        </h4>
                     </div>
-
-
+                    <div class="portlet-widgets">
+                        <button class="btn btn-white btn-xs"><i class="fa fa-plus-circle"></i> Registrarse</button>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-
-
-
-
-            </form>
-
-            <button type="Submit" class="btn btn-default pull-right"  onclick="seleccion();">Ingresar</button>
-
+                <div class="portlet-body">
+                    <form accept-charset="UTF-8" role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="E-mail" name="email" type="text">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">Recuérdame
+                                </label>
+                            </div>
+                            <br>
+                            <a href="" class="btn btn-lg btn-green btn-block">Iniciar Sesión</a>
+                        </fieldset>
+                        <br>
+                        <p class="small">
+                            <a href="#">Olvidaste tu contraseña?</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</div>    
+</div>
