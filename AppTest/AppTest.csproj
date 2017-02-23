@@ -516,6 +516,7 @@
     <Content Include="Scripts\weightedtree\data\convertcsv.json" />
     <Content Include="Scripts\weightedtree\data\json-schema.json" />
     <Content Include="Scripts\weightedtree\data\weightedtree_federal_budget.csv" />
+    <Content Include="Views\Shared\_loginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
