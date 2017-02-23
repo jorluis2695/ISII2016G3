@@ -10,8 +10,5 @@ namespace AppTest.Models
         public int testID { get; set; }
         public int tipo { get; set; }
         public string nombreTest { get; set; }
-        public List<Pregunta> preguntasTest { get; set; }
-
-
     }
 }

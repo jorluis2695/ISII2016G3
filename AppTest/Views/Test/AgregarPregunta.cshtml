@@ -1,37 +1,32 @@
 ﻿@model IEnumerable<AppTest.Models.Pregunta>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Agregar Preguntas al Test";
 }
 
-<h2>Index</h2>
+<h2>Agregar Preguntas al Test</h2>
 
 <p>
-        @Html.ActionLink("Create New", "../Preguntas/Create")
-    </p>
-    <table class="table">
+    @Html.ActionLink("Create New", "../Preguntas/Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.textoPregunta)
+        </th>
+        <th>
+            @Html.Label("Opciones")
+        </th>
+    </tr>
+    
+    @foreach (var item in Model)
+            {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.textoPregunta)
-            </th>
-            <th>
-                @Html.Label("Agregar")
-            </th>
-            <th></th>
+            <td>
+                @Html.DisplayFor(modelItem => item.textoPregunta)
+            </td>
+            <td>
+                @Ajax.ActionLink("Agregar Pregunta","AgregarPreguntaTest", new { idT= int.Parse(Request.Url.Segments.Last().Split('?')[0]), id=item.preguntaID}, new AjaxOptions() { HttpMethod = "post" })
+            </td>
         </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.textoPregunta)
-                    
-                </td>
-                <td>
-                    @Ajax.ActionLink("Agregar", "AgregarPregunta",new { int.Parse(Request.Url.Segments.Last().Split('?')[0]) , item.preguntaID }, new AjaxOptions { HttpMethod = "POST" });
-                    <!--Html.ActionLink("Agregar", "AgregarPregunta", new { id = Request.Url.Segments.Last() ; idP = item.preguntaID }, new AjaxOptions { HttpMethod = "POST" });-->
-                </td>
-            </tr>
-        }
-
-    </table>
-
+    }
+</table>

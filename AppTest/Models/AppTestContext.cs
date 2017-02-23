@@ -24,5 +24,7 @@ namespace AppTest.Models
         public System.Data.Entity.DbSet<AppTest.Models.Convocatoria> Convocatorias { get; set; }
 
         public System.Data.Entity.DbSet<AppTest.Models.Test> Tests { get; set; }
+
+        public System.Data.Entity.DbSet<AppTest.Models.Testpregunta> Testpreguntas { get; set; }
     }
 }

@@ -185,6 +185,8 @@
     <Compile Include="Models\Pregunta.cs" />
     <Compile Include="Models\Rubrica.cs" />
     <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\Testpregunta.cs" />
+    <Compile Include="Controllers\TestpreguntasController.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -516,6 +518,11 @@
     <Content Include="Scripts\weightedtree\data\convertcsv.json" />
     <Content Include="Scripts\weightedtree\data\json-schema.json" />
     <Content Include="Scripts\weightedtree\data\weightedtree_federal_budget.csv" />
+    <Content Include="Views\Testpreguntas\Create.cshtml" />
+    <Content Include="Views\Testpreguntas\Delete.cshtml" />
+    <Content Include="Views\Testpreguntas\Details.cshtml" />
+    <Content Include="Views\Testpreguntas\Edit.cshtml" />
+    <Content Include="Views\Testpreguntas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
