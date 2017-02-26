@@ -149,10 +149,17 @@ namespace AppTest.Controllers
         }
         [HttpPost]
         [ActionName("TomarTest")]
-        public ActionResult TomarTest(LinkedList<Pregunta> preg)
+        public ActionResult TomarTest(FormCollection fc)
         {
+            String[] k = fc.AllKeys;
+            for(int i=0; i < k.Length; i++)
+            {
+                int a = int.Parse(fc.GetValue(k[i]).ToString() );
+                tp=db.Testpreguntas.Where(p=>p.)
+            }
+            
 
-            return View(test);
+            return View();
         }
 
         protected override void Dispose(bool disposing)

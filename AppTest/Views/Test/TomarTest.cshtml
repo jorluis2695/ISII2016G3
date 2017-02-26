@@ -7,22 +7,26 @@
 
 @using (Html.BeginForm("TomarTest", "Test", FormMethod.Post))
 {
-    foreach(var item in Model)
+    
+}
+@using (Ajax.BeginForm("TomarTest", "Test", new AjaxOptions { UpdateTargetId = "TomarTest" }))
+{
+    foreach (var item in Model)
     {
         <div class="row grupoPreguntas">
             @Html.DisplayFor(modelItem => item.textoPregunta)
-            <div class="opciones">
-                @Html.RadioButton(item.preguntaID.ToString(), item.op1,new { id=item.preguntaID})@Html.Label(item.op1)
+            <div class="opciones" id=@item.preguntaID>
+                @Html.RadioButton(item.preguntaID.ToString(), 1, new { id = item.preguntaID})@Html.Label(item.op1)
                 <br />
-                @Html.RadioButton(item.preguntaID.ToString(), item.op2, new { id=item.preguntaID})@Html.Label(item.op2)
+                @Html.RadioButton(item.preguntaID.ToString(), 2, new { id = item.preguntaID})@Html.Label(item.op2)
                 <br />
-                @Html.RadioButton(item.preguntaID.ToString(), item.op3, new { id = item.preguntaID})@Html.Label(item.op3)
+                @Html.RadioButton(item.preguntaID.ToString(), 3, new { id = item.preguntaID})@Html.Label(item.op3)
                 <br />
-                @Html.RadioButton(item.preguntaID.ToString(), item.op4, new { id = item.preguntaID})@Html.Label(item.op4)
+                @Html.RadioButton(item.preguntaID.ToString(), 4, new { id = item.preguntaID})@Html.Label(item.op4)
                 <br />
             </div>
         </div>
         <hr />
     }
-    <input type="submit" value="Enviar Respuestas" />
+    <input id="formularioTest" type="submit" value="Enviar Respuestas" />
 }
