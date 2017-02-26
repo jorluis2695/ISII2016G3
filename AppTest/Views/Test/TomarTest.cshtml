@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AppTest.Models.Pregunta>
+@{
+    ViewBag.Title = "Tomar Test";
+}
+
+<h2>Test de *********</h2>
+
+@using (Html.BeginForm("TomarTest", "Test", FormMethod.Post))
+{
+    foreach(var item in Model)
+    {
+        <div class="row grupoPreguntas">
+            @Html.DisplayFor(modelItem => item.textoPregunta)
+            <div class="opciones">
+                @Html.RadioButton(item.preguntaID.ToString(), item.op1,new { id=item.preguntaID})@Html.Label(item.op1)
+                <br />
+                @Html.RadioButton(item.preguntaID.ToString(), item.op2, new { id=item.preguntaID})@Html.Label(item.op2)
+                <br />
+                @Html.RadioButton(item.preguntaID.ToString(), item.op3, new { id = item.preguntaID})@Html.Label(item.op3)
+                <br />
+                @Html.RadioButton(item.preguntaID.ToString(), item.op4, new { id = item.preguntaID})@Html.Label(item.op4)
+                <br />
+            </div>
+        </div>
+        <hr />
+    }
+    <input type="submit" value="Enviar Respuestas" />
+}

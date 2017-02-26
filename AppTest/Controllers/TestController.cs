@@ -135,7 +135,25 @@ namespace AppTest.Controllers
            return View(await db.Preguntas.ToListAsync());
         }
 
-        
+        public ActionResult TomarTest()
+        {
+            Random rnd = new Random();
+            List<Testpregunta> tR = db.Testpreguntas.Where(t => t.IdTest.Equals(1)).ToList();
+            LinkedList<Pregunta> aP = new LinkedList<Pregunta>();
+            foreach (Testpregunta t in tR)
+            {
+                Pregunta pU = (Pregunta)db.Preguntas.Where(p => p.preguntaID.Equals(t.IdPregunta)).First();
+                aP.AddLast(pU);
+            }
+            return View(aP);
+        }
+        [HttpPost]
+        [ActionName("TomarTest")]
+        public ActionResult TomarTest(LinkedList<Pregunta> preg)
+        {
+
+            return View(test);
+        }
 
         protected override void Dispose(bool disposing)
         {

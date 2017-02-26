@@ -523,6 +523,7 @@
     <Content Include="Views\Testpreguntas\Details.cshtml" />
     <Content Include="Views\Testpreguntas\Edit.cshtml" />
     <Content Include="Views\Testpreguntas\Index.cshtml" />
+    <Content Include="Views\Test\TomarTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
