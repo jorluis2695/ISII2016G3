@@ -1,0 +1,62 @@
+﻿@model AppTest.Models.Convocatoria
+@model Tuple<AppTest.Models.Convocatoria,AppTest.Models.
+
+@{
+    Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ResultadosEvaluacion</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaFin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cActiva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th></th>
+        </tr>
+    
+
+    @foreach(var item in Model.estudiantes)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cActiva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.convocatoriaID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.convocatoriaID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.convocatoriaID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

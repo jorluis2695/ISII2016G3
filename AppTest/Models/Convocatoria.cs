@@ -12,5 +12,9 @@ namespace AppTest.Models
         public DateTime fechaFin { get; set; }
         public Boolean cActiva { get; set;}
         public string descripcion { get; set; }
+        public Test testAptitudes { get; set; }
+        public Test testConocimiento { get; set; }
+        public LinkedList<Usuario> estudiantes { get; set; }
+        public LinkedList<Usuario> profesores { get; set; }
     }
 }

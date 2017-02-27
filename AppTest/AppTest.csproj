@@ -524,6 +524,7 @@
     <Content Include="Views\Testpreguntas\Edit.cshtml" />
     <Content Include="Views\Testpreguntas\Index.cshtml" />
     <Content Include="Views\Test\TomarTest.cshtml" />
+    <Content Include="Views\Convocatoria\ResultadosEvaluacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

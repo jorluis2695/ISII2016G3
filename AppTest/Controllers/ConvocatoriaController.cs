@@ -116,6 +116,12 @@ namespace AppTest.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<ActionResult> ResultadosEvaluacion(int id)
+        {
+            Convocatoria c = await db.Convocatorias.FindAsync(id);
+            return View(c);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

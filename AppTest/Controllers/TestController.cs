@@ -155,7 +155,6 @@ namespace AppTest.Controllers
             for(int i=0; i < k.Length; i++)
             {
                 int a = int.Parse(fc.GetValue(k[i]).ToString() );
-                tp=db.Testpreguntas.Where(p=>p.)
             }
             
 
