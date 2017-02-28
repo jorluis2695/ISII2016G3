@@ -172,7 +172,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PreguntasController.cs" />
-    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Controllers\RubricasController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -526,10 +525,6 @@
     <Content Include="Views\Testpreguntas\Index.cshtml" />
     <Content Include="Views\Test\TomarTest.cshtml" />
     <Content Include="Views\Convocatoria\ResultadosEvaluacion.cshtml" />
-    <Content Include="Views\Reportes\aprobacionAptitudes.cshtml" />
-    <Content Include="Views\Reportes\calificacionesAptitudes.cshtml" />
-    <Content Include="Views\Reportes\aprobacionPostulacion.cshtml" />
-    <Content Include="Views\Reportes\calificacionesPostulacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
