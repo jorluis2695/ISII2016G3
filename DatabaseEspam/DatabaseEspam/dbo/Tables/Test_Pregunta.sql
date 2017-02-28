@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Test_Pregunta](
-	[Id_test] [int] NOT NULL IDENTITY,
+	[Id_test] [int] NOT NULL,
 	[Id_pregunta] [int] NOT NULL
 ) ON [PRIMARY]
 GO
