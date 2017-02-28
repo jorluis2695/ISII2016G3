@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "calificacionesModulos";
+    Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
+}
+
+<h2>calificacionesModulos</h2>
+
+@section Widgets{
+    <li class="panel">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#aptitudes">
+            <i class="fa fa-edit"></i>Reportes de Examen de Aptitudes<i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse nav" id="aptitudes">
+            <li>
+                <a href="@Url.Action("aprobacionAptitudes")">
+                    <i class="fa fa-angle-double-right"></i> Reportes de Aprobación
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("calificacionesAptitudes")">
+                    <i class="fa fa-angle-double-right"></i> Reporte de Calificaciones
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="panel">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#postulacion">
+            <i class="fa fa-edit"></i>Reportes de Examen de Postulación<i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse nav" id="postulacion">
+            <li>
+                <a href="@Url.Action("aprobacionPostulacion")">
+                    <i class="fa fa-angle-double-right"></i> Reportes de Aprobación
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("calificacionesPostulacion")">
+                    <i class="fa fa-angle-double-right"></i> Reporte de Calificaciones
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="panel">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#modulos">
+            <i class="fa fa-edit"></i>Reportes de Módulos<i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse nav in" id="modulos">
+            <li>
+                <a href="@Url.Action("aprobacionModulos")">
+                    <i class="fa fa-angle-double-right"></i> Reportes de Aprobación
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("calificacionesModulos")">
+                    <i class="fa fa-angle-double-right"></i> Reporte de Calificaciones
+                </a>
+            </li>
+        </ul>
+    </li>
+}

@@ -530,6 +530,8 @@
     <Content Include="Views\Reportes\calificacionesAptitudes.cshtml" />
     <Content Include="Views\Reportes\aprobacionPostulacion.cshtml" />
     <Content Include="Views\Reportes\calificacionesPostulacion.cshtml" />
+    <Content Include="Views\Reportes\calificacionesModulos.cshtml" />
+    <Content Include="Views\Reportes\aprobacionModulos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

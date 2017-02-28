@@ -17,11 +17,19 @@ namespace AppTest.Controllers
         {
             return View();
         }
+        public ActionResult aprobacionModulos()
+        {
+            return View();
+        }
         public ActionResult calificacionesAptitudes()
         {
             return View();
         }
         public ActionResult calificacionesPostulacion()
+        {
+            return View();
+        }
+        public ActionResult calificacionesModulos()
         {
             return View();
         }
