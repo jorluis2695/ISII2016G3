@@ -3,11 +3,96 @@
     ViewBag.Title = "calificacionesAptitudes";
     Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
 }
+<br />
+<h2>Reporte de Calificaciones - Examen de Aptitudes</h2>
+<br />
+<br />
+<div class="row">
 
-<h2>calificacionesAptitudes</h2>
+    <div class="col-lg-12">
 
+        <div class="portlet portlet-default">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    <h4>Tabla de Calificaciones</h4>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-responsive">
+                    <table id="example-table" class="table table-striped table-bordered table-hover table-green">
+                        <thead>
+                            <tr>
+                                <th>Matricula</th>
+                                <th>Nombre</th>
+                                <th>Carrera</th>
+                                <th>Calificación</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="odd gradeX">
+                                <td>2013654245</td>
+                                <td>Juan Piguave Lopez</td>
+                                <td>Ingeniería en Ciencias Computacionales</td>
+                                <td class="center">20</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>2011789245</td>
+                                <td>Amanda Jurado Miranda</td>
+                                <td>Ingeniería en Alimentos</td>
+                                <td class="center">80</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>20102454522</td>
+                                <td>Juana Estrada Calle</td>
+                                <td>Ingeniería Mecánica</td>
+                                <td class="center">50</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>20168392834</td>
+                                <td>Jonathan Carrera Gutierrez</td>
+                                <td>Ingeniería en Telecomunicaciones</td>
+                                <td class="center">87</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>2019282182</td>
+                                <td>Karla Aguilera Roman</td>
+                                <td>Ingeniería en Alimentos</td>
+                                <td class="center">90</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>20139283928</td>
+                                <td>Mauricio Pacheco Gonzales</td>
+                                <td>Ingeniería en Ciencias Computacionales</td>
+                                <td class="center">59</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>201304810</td>
+                                <td>Julio Guilindro Ordoñez</td>
+                                <td>Ingeniería en Ciencias Computacionales</td>
+                                <td class="center">100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.portlet-body -->
+        </div>
+        <!-- /.portlet -->
 
+    </div>
+    <!-- /.col-lg-12 -->
 
+</div>
+
+<script src="~/Scripts/plugins/datatables/datatables-bs3.js"></script>
+<script src="~/Scripts/plugins/datatables/jquery.dataTables.js"></script>
+<script>$(document).ready(function () {
+    $('#example-table').dataTable();
+});
+</script>
 
 @section Widgets{
     <li class="panel">
