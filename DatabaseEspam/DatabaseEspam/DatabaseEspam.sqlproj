@@ -76,10 +76,8 @@
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
     <Build Include="dbo\StoreProcedures\GetTestID.sql" />
     <Build Include="dbo\StoreProcedures\GetTest.sql" />
-    <Build Include="dbo\StoreProcedures\CrearPregunta.sql" />
     <Build Include="dbo\StoreProcedures\CrearPrueba.sql" />
     <Build Include="dbo\StoreProcedures\AgregarPreguntaATest.sql" />
-    <Build Include="dbo\StoreProcedures\CrearTest.sql" />
     <Build Include="dbo\StoreProcedures\GuardarRespuestaPregunta.sql" />
     <Build Include="dbo\StoreProcedures\CrearConvocatoria.sql" />
     <Build Include="dbo\StoreProcedures\CrearConvocatoriaTest.sql" />
@@ -88,5 +86,8 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DatabaseEspam.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Script de llenar la base de datos.sql" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[TipoTest](
 	[TipoTestId] [int] NOT NULL IDENTITY,
-	[Descripcion] [nchar](10) NULL,
+	[Descripcion] TEXT NULL,
  CONSTRAINT [PK_TipoTest] PRIMARY KEY CLUSTERED 
 (
 	[TipoTestId] ASC
