@@ -21,4 +21,32 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="IdTipo" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="c4662ce2-fa97-40b3-b5e7-7684647c848e" ChangeDateTime="03/01/2017 03:38:51">
+    <Property Name="ElementName" Value="[dbo].[ModulosPrerequisitos].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ModulosPrerequisitos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdMod1" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6ce55d54-7258-45f4-9acb-1193fb7cc175" ChangeDateTime="03/01/2017 03:39:11">
+    <Property Name="ElementName" Value="[dbo].[ModulosPrerequisitos].[IdMod1]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ModulosPrerequisitos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3f30ea80-a777-4503-bab2-b84f372ddece" ChangeDateTime="03/01/2017 03:39:20">
+    <Property Name="ElementName" Value="[dbo].[ModulosPrerequisitos].[IdMod2]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ModulosPrerequisitos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdMod1" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="684e8487-5c1f-4d84-ae7a-f2884811408a" ChangeDateTime="03/01/2017 03:39:23">
+    <Property Name="ElementName" Value="[dbo].[ModulosPrerequisitos].[IdMod1]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ModulosPrerequisitos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdMod2" />
+  </Operation>
 </Operations>

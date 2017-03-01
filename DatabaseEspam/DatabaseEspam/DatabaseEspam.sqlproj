@@ -83,6 +83,10 @@
     <Build Include="dbo\StoreProcedures\CrearConvocatoriaTest.sql" />
     <Build Include="dbo\Tables\Administrador.sql" />
     <Build Include="dbo\Tables\Tipo_Estudiante.sql" />
+    <Build Include="dbo\Tables\Modulos.sql" />
+    <Build Include="dbo\Tables\ModulosPrerequisitos.sql" />
+    <Build Include="dbo\StoreProcedures\CrearModulo.sql" />
+    <Build Include="dbo\StoreProcedures\ModulosParaPreRequisitos_1.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DatabaseEspam.refactorlog" />
