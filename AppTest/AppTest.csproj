@@ -532,6 +532,7 @@
     <Content Include="Views\Reportes\calificacionesPostulacion.cshtml" />
     <Content Include="Views\Reportes\calificacionesModulos.cshtml" />
     <Content Include="Views\Reportes\aprobacionModulos.cshtml" />
+    <Content Include="Views\Shared\_MasterPlantilla.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
