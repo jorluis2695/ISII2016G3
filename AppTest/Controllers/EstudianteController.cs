@@ -11,8 +11,13 @@ namespace AppTest.Controllers
         // GET: Estudiante
         public ActionResult Index()
         {
-            return View("../Reportes/calificacionesModulos");
+            return View();
         
+        }
+        public ActionResult Calificaciones()
+        {
+            return View("../Reportes/calificacionesModulos");
+
         }
     }
 }
