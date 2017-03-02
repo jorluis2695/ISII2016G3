@@ -14,9 +14,14 @@ namespace AppTest.Controllers
             return View();
         
         }
-        public ActionResult Calificaciones()
+        public ActionResult TestAptitudes()
         {
-            return View("../Reportes/calificacionesModulos");
+            return View("");
+
+        }
+        public ActionResult TestPostulacion()
+        {
+            return View("");
 
         }
     }

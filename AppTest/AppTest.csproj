@@ -536,6 +536,8 @@
     <Content Include="Views\Reportes\aprobacionModulos.cshtml" />
     <Content Include="Views\Shared\_MasterPlantilla.cshtml" />
     <Content Include="Views\Estudiante\Index.cshtml" />
+    <Content Include="Views\Estudiante\TestAptitudes.cshtml" />
+    <Content Include="Views\Estudiante\TestPostulacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
