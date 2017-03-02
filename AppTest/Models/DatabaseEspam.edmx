@@ -1,0 +1,820 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DatabaseEspamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Convocatoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_fin" Type="date" />
+          <Property Name="descripcion" Type="text" />
+        </EntityType>
+        <EntityType Name="ConvocatoriaTest">
+          <Key>
+            <PropertyRef Name="ConvocatoriaTestID" />
+          </Key>
+          <Property Name="ConvocatoriaTestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestID" Type="int" />
+          <Property Name="ConvocatoriaID" Type="int" />
+        </EntityType>
+        <EntityType Name="Estudiantes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" />
+          <Property Name="Carrera" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cedula" Type="nchar" MaxLength="10" />
+          <Property Name="Matricula" Type="nchar" MaxLength="15" />
+          <Property Name="Genero" Type="nchar" MaxLength="15" />
+          <Property Name="Password" Type="nchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" />
+          <Property Name="Syllabus" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'DatabaseEspam.dbo.ModulosPrerequisitos' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ModulosPrerequisitos">
+          <Property Name="IdMod1" Type="int" />
+          <Property Name="IdMod2" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Pregunta_estudiante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_pregunta" Type="int" Nullable="false" />
+          <Property Name="PruebaID" Type="int" Nullable="false" />
+          <Property Name="opcion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Preguntas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pregunta" Type="ntext" />
+          <Property Name="opcion1" Type="ntext" />
+          <Property Name="opcion2" Type="ntext" />
+          <Property Name="opcion3" Type="ntext" />
+          <Property Name="opcion4" Type="ntext" />
+          <Property Name="opcion_correcta" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Prueba">
+          <Key>
+            <PropertyRef Name="PruebaID" />
+          </Key>
+          <Property Name="PruebaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConvocatoriaTestID" Type="int" />
+          <Property Name="Id_estudiante" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Calificacion" Type="float" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="TestID" />
+          </Key>
+          <Property Name="TestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoTestID" Type="int" />
+          <Property Name="fecha_creacion" Type="date" />
+          <Property Name="tiempo" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Test_Pregunta">
+          <Key>
+            <PropertyRef Name="Id_test" />
+            <PropertyRef Name="Id_pregunta" />
+          </Key>
+          <Property Name="Id_test" Type="int" Nullable="false" />
+          <Property Name="Id_pregunta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoTest">
+          <Key>
+            <PropertyRef Name="TipoTestId" />
+          </Key>
+          <Property Name="TipoTestId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="text" />
+        </EntityType>
+        <Association Name="FK_ConvocatoriaTest_Convocatoria">
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="0..1" />
+          <End Role="ConvocatoriaTest" Type="Self.ConvocatoriaTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Convocatoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConvocatoriaTest">
+              <PropertyRef Name="ConvocatoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConvocatoriaTest_Test">
+          <End Role="Test" Type="Self.Test" Multiplicity="0..1" />
+          <End Role="ConvocatoriaTest" Type="Self.ConvocatoriaTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Test">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="ConvocatoriaTest">
+              <PropertyRef Name="TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pregunta">
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="1" />
+          <End Role="Test_Pregunta" Type="Self.Test_Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Preguntas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Test_Pregunta">
+              <PropertyRef Name="Id_pregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_estudiante_Prueba">
+          <End Role="Prueba" Type="Self.Prueba" Multiplicity="1" />
+          <End Role="Pregunta_estudiante" Type="Self.Pregunta_estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prueba">
+              <PropertyRef Name="PruebaID" />
+            </Principal>
+            <Dependent Role="Pregunta_estudiante">
+              <PropertyRef Name="PruebaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_estudiante_ToTable_1">
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="1" />
+          <End Role="Pregunta_estudiante" Type="Self.Pregunta_estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Preguntas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pregunta_estudiante">
+              <PropertyRef Name="Id_pregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prueba_ConvocatoriaTest">
+          <End Role="ConvocatoriaTest" Type="Self.ConvocatoriaTest" Multiplicity="0..1" />
+          <End Role="Prueba" Type="Self.Prueba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConvocatoriaTest">
+              <PropertyRef Name="ConvocatoriaTestID" />
+            </Principal>
+            <Dependent Role="Prueba">
+              <PropertyRef Name="ConvocatoriaTestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_test">
+          <End Role="Test" Type="Self.Test" Multiplicity="1" />
+          <End Role="Test_Pregunta" Type="Self.Test_Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Test">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="Test_Pregunta">
+              <PropertyRef Name="Id_test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Test_estudiante_ToTable_1">
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="0..1" />
+          <End Role="Prueba" Type="Self.Prueba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiantes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Prueba">
+              <PropertyRef Name="Id_estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Test_TipoTest">
+          <End Role="TipoTest" Type="Self.TipoTest" Multiplicity="0..1" />
+          <End Role="Test" Type="Self.Test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTest">
+              <PropertyRef Name="TipoTestId" />
+            </Principal>
+            <Dependent Role="Test">
+              <PropertyRef Name="TipoTestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AgregarPreguntaATest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTest" Type="int" Mode="In" />
+          <Parameter Name="pregunta" Type="ntext" Mode="In" />
+          <Parameter Name="op1" Type="ntext" Mode="In" />
+          <Parameter Name="op2" Type="ntext" Mode="In" />
+          <Parameter Name="op3" Type="ntext" Mode="In" />
+          <Parameter Name="op4" Type="ntext" Mode="In" />
+          <Parameter Name="opC" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AgregarPrerequisitos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idModulo" Type="int" Mode="In" />
+          <Parameter Name="idPrerequisito" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CrearConvocatoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha_ini" Type="date" Mode="In" />
+          <Parameter Name="fecha_fin" Type="date" Mode="In" />
+          <Parameter Name="descripcion" Type="text" Mode="In" />
+        </Function>
+        <Function Name="CrearConvocatoriaTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idConvocatoria" Type="int" Mode="In" />
+          <Parameter Name="tipo" Type="int" Mode="In" />
+          <Parameter Name="fecha" Type="date" Mode="In" />
+          <Parameter Name="tiempo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CrearModulo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="text" Mode="In" />
+          <Parameter Name="desc" Type="text" Mode="In" />
+        </Function>
+        <Function Name="CrearPrueba" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EstudianteID" Type="int" Mode="In" />
+          <Parameter Name="ConvocatoriaTestID" Type="int" Mode="In" />
+          <Parameter Name="fecha" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GetTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TestID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetTestID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Conv" Type="int" Mode="In" />
+          <Parameter Name="Tipo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GuardarRespuestaPregunta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PruebaID" Type="int" Mode="In" />
+          <Parameter Name="PreguntaID" Type="int" Mode="In" />
+          <Parameter Name="opcion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ModulosParaPreRequisitos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DatabaseEspamModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Convocatoria" EntityType="Self.Convocatoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConvocatoriaTest" EntityType="Self.ConvocatoriaTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudiantes" EntityType="Self.Estudiantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pregunta_estudiante" EntityType="Self.Pregunta_estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Preguntas" EntityType="Self.Preguntas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prueba" EntityType="Self.Prueba" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoTest" EntityType="Self.TipoTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Test_Pregunta" EntityType="Self.Test_Pregunta" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Test_Pregunta].[Id_test] AS [Id_test], 
+    [Test_Pregunta].[Id_pregunta] AS [Id_pregunta]
+    FROM [dbo].[Test_Pregunta] AS [Test_Pregunta]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ConvocatoriaTest_Convocatoria" Association="Self.FK_ConvocatoriaTest_Convocatoria">
+            <End Role="Convocatoria" EntitySet="Convocatoria" />
+            <End Role="ConvocatoriaTest" EntitySet="ConvocatoriaTest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConvocatoriaTest_Test" Association="Self.FK_ConvocatoriaTest_Test">
+            <End Role="Test" EntitySet="Test" />
+            <End Role="ConvocatoriaTest" EntitySet="ConvocatoriaTest" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pregunta" Association="Self.fk_pregunta">
+            <End Role="Preguntas" EntitySet="Preguntas" />
+            <End Role="Test_Pregunta" EntitySet="Test_Pregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_estudiante_Prueba" Association="Self.FK_Pregunta_estudiante_Prueba">
+            <End Role="Prueba" EntitySet="Prueba" />
+            <End Role="Pregunta_estudiante" EntitySet="Pregunta_estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_estudiante_ToTable_1" Association="Self.FK_Pregunta_estudiante_ToTable_1">
+            <End Role="Preguntas" EntitySet="Preguntas" />
+            <End Role="Pregunta_estudiante" EntitySet="Pregunta_estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prueba_ConvocatoriaTest" Association="Self.FK_Prueba_ConvocatoriaTest">
+            <End Role="ConvocatoriaTest" EntitySet="ConvocatoriaTest" />
+            <End Role="Prueba" EntitySet="Prueba" />
+          </AssociationSet>
+          <AssociationSet Name="fk_test" Association="Self.fk_test">
+            <End Role="Test" EntitySet="Test" />
+            <End Role="Test_Pregunta" EntitySet="Test_Pregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Test_estudiante_ToTable_1" Association="Self.FK_Test_estudiante_ToTable_1">
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+            <End Role="Prueba" EntitySet="Prueba" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Test_TipoTest" Association="Self.FK_Test_TipoTest">
+            <End Role="TipoTest" EntitySet="TipoTest" />
+            <End Role="Test" EntitySet="Test" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseEspamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Convocatoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ConvocatoriaTests" Relationship="Self.FK_ConvocatoriaTest_Convocatoria" FromRole="Convocatoria" ToRole="ConvocatoriaTest" />
+        </EntityType>
+        <EntityType Name="ConvocatoriaTest">
+          <Key>
+            <PropertyRef Name="ConvocatoriaTestID" />
+          </Key>
+          <Property Name="ConvocatoriaTestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestID" Type="Int32" />
+          <Property Name="ConvocatoriaID" Type="Int32" />
+          <NavigationProperty Name="Convocatoria" Relationship="Self.FK_ConvocatoriaTest_Convocatoria" FromRole="ConvocatoriaTest" ToRole="Convocatoria" />
+          <NavigationProperty Name="Test" Relationship="Self.FK_ConvocatoriaTest_Test" FromRole="ConvocatoriaTest" ToRole="Test" />
+          <NavigationProperty Name="Pruebas" Relationship="Self.FK_Prueba_ConvocatoriaTest" FromRole="ConvocatoriaTest" ToRole="Prueba" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Carrera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cedula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Matricula" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Pruebas" Relationship="Self.FK_Test_estudiante_ToTable_1" FromRole="Estudiantes" ToRole="Prueba" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Syllabus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Pregunta_estudiante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_pregunta" Type="Int32" Nullable="false" />
+          <Property Name="PruebaID" Type="Int32" Nullable="false" />
+          <Property Name="opcion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prueba" Relationship="Self.FK_Pregunta_estudiante_Prueba" FromRole="Pregunta_estudiante" ToRole="Prueba" />
+          <NavigationProperty Name="Pregunta" Relationship="Self.FK_Pregunta_estudiante_ToTable_1" FromRole="Pregunta_estudiante" ToRole="Preguntas" />
+        </EntityType>
+        <EntityType Name="Pregunta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pregunta1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="opcion1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="opcion2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="opcion3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="opcion4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="opcion_correcta" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Pregunta_estudiante" Relationship="Self.FK_Pregunta_estudiante_ToTable_1" FromRole="Preguntas" ToRole="Pregunta_estudiante" />
+          <NavigationProperty Name="Tests" Relationship="Self.Test_Pregunta" FromRole="Preguntas" ToRole="Test" />
+        </EntityType>
+        <EntityType Name="Prueba">
+          <Key>
+            <PropertyRef Name="PruebaID" />
+          </Key>
+          <Property Name="PruebaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConvocatoriaTestID" Type="Int32" />
+          <Property Name="Id_estudiante" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Calificacion" Type="Double" />
+          <NavigationProperty Name="ConvocatoriaTest" Relationship="Self.FK_Prueba_ConvocatoriaTest" FromRole="Prueba" ToRole="ConvocatoriaTest" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_Test_estudiante_ToTable_1" FromRole="Prueba" ToRole="Estudiantes" />
+          <NavigationProperty Name="Pregunta_estudiante" Relationship="Self.FK_Pregunta_estudiante_Prueba" FromRole="Prueba" ToRole="Pregunta_estudiante" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="TestID" />
+          </Key>
+          <Property Name="TestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoTestID" Type="Int32" />
+          <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+          <Property Name="tiempo" Type="Int32" />
+          <NavigationProperty Name="ConvocatoriaTests" Relationship="Self.FK_ConvocatoriaTest_Test" FromRole="Test" ToRole="ConvocatoriaTest" />
+          <NavigationProperty Name="TipoTest" Relationship="Self.FK_Test_TipoTest" FromRole="Test" ToRole="TipoTest" />
+          <NavigationProperty Name="Preguntas" Relationship="Self.Test_Pregunta" FromRole="Test" ToRole="Preguntas" />
+        </EntityType>
+        <EntityType Name="TipoTest">
+          <Key>
+            <PropertyRef Name="TipoTestId" />
+          </Key>
+          <Property Name="TipoTestId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tests" Relationship="Self.FK_Test_TipoTest" FromRole="TipoTest" ToRole="Test" />
+        </EntityType>
+        <Association Name="FK_ConvocatoriaTest_Convocatoria">
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="0..1" />
+          <End Role="ConvocatoriaTest" Type="Self.ConvocatoriaTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Convocatoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConvocatoriaTest">
+              <PropertyRef Name="ConvocatoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConvocatoriaTest_Test">
+          <End Role="Test" Type="Self.Test" Multiplicity="0..1" />
+          <End Role="ConvocatoriaTest" Type="Self.ConvocatoriaTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Test">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="ConvocatoriaTest">
+              <PropertyRef Name="TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prueba_ConvocatoriaTest">
+          <End Role="ConvocatoriaTest" Type="Self.ConvocatoriaTest" Multiplicity="0..1" />
+          <End Role="Prueba" Type="Self.Prueba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConvocatoriaTest">
+              <PropertyRef Name="ConvocatoriaTestID" />
+            </Principal>
+            <Dependent Role="Prueba">
+              <PropertyRef Name="ConvocatoriaTestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Test_estudiante_ToTable_1">
+          <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="0..1" />
+          <End Role="Prueba" Type="Self.Prueba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiantes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Prueba">
+              <PropertyRef Name="Id_estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_estudiante_Prueba">
+          <End Role="Prueba" Type="Self.Prueba" Multiplicity="1" />
+          <End Role="Pregunta_estudiante" Type="Self.Pregunta_estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prueba">
+              <PropertyRef Name="PruebaID" />
+            </Principal>
+            <Dependent Role="Pregunta_estudiante">
+              <PropertyRef Name="PruebaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_estudiante_ToTable_1">
+          <End Role="Preguntas" Type="Self.Pregunta" Multiplicity="1" />
+          <End Role="Pregunta_estudiante" Type="Self.Pregunta_estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Preguntas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pregunta_estudiante">
+              <PropertyRef Name="Id_pregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Test_TipoTest">
+          <End Role="TipoTest" Type="Self.TipoTest" Multiplicity="0..1" />
+          <End Role="Test" Type="Self.Test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTest">
+              <PropertyRef Name="TipoTestId" />
+            </Principal>
+            <Dependent Role="Test">
+              <PropertyRef Name="TipoTestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Test_Pregunta">
+          <End Role="Preguntas" Type="Self.Pregunta" Multiplicity="*" />
+          <End Role="Test" Type="Self.Test" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DatabaseEspamEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+          <EntitySet Name="Administradors" EntityType="Self.Administrador" />
+          <EntitySet Name="Convocatorias" EntityType="Self.Convocatoria" />
+          <EntitySet Name="ConvocatoriaTests" EntityType="Self.ConvocatoriaTest" />
+          <EntitySet Name="Estudiantes" EntityType="Self.Estudiante" />
+          <EntitySet Name="Modulos" EntityType="Self.Modulo" />
+          <EntitySet Name="Pregunta_estudiante" EntityType="Self.Pregunta_estudiante" />
+          <EntitySet Name="Preguntas" EntityType="Self.Pregunta" />
+          <EntitySet Name="Pruebas" EntityType="Self.Prueba" />
+          <EntitySet Name="Tests" EntityType="Self.Test" />
+          <EntitySet Name="TipoTests" EntityType="Self.TipoTest" />
+          <AssociationSet Name="FK_ConvocatoriaTest_Convocatoria" Association="Self.FK_ConvocatoriaTest_Convocatoria">
+            <End Role="Convocatoria" EntitySet="Convocatorias" />
+            <End Role="ConvocatoriaTest" EntitySet="ConvocatoriaTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConvocatoriaTest_Test" Association="Self.FK_ConvocatoriaTest_Test">
+            <End Role="Test" EntitySet="Tests" />
+            <End Role="ConvocatoriaTest" EntitySet="ConvocatoriaTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prueba_ConvocatoriaTest" Association="Self.FK_Prueba_ConvocatoriaTest">
+            <End Role="ConvocatoriaTest" EntitySet="ConvocatoriaTests" />
+            <End Role="Prueba" EntitySet="Pruebas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Test_estudiante_ToTable_1" Association="Self.FK_Test_estudiante_ToTable_1">
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+            <End Role="Prueba" EntitySet="Pruebas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_estudiante_Prueba" Association="Self.FK_Pregunta_estudiante_Prueba">
+            <End Role="Prueba" EntitySet="Pruebas" />
+            <End Role="Pregunta_estudiante" EntitySet="Pregunta_estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_estudiante_ToTable_1" Association="Self.FK_Pregunta_estudiante_ToTable_1">
+            <End Role="Preguntas" EntitySet="Preguntas" />
+            <End Role="Pregunta_estudiante" EntitySet="Pregunta_estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Test_TipoTest" Association="Self.FK_Test_TipoTest">
+            <End Role="TipoTest" EntitySet="TipoTests" />
+            <End Role="Test" EntitySet="Tests" />
+          </AssociationSet>
+          <AssociationSet Name="Test_Pregunta" Association="Self.Test_Pregunta">
+            <End Role="Preguntas" EntitySet="Preguntas" />
+            <End Role="Test" EntitySet="Tests" />
+          </AssociationSet>
+          <FunctionImport Name="AgregarPreguntaATest">
+            <Parameter Name="idTest" Mode="In" Type="Int32" />
+            <Parameter Name="pregunta" Mode="In" Type="String" />
+            <Parameter Name="op1" Mode="In" Type="String" />
+            <Parameter Name="op2" Mode="In" Type="String" />
+            <Parameter Name="op3" Mode="In" Type="String" />
+            <Parameter Name="op4" Mode="In" Type="String" />
+            <Parameter Name="opC" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AgregarPrerequisitos">
+            <Parameter Name="idModulo" Mode="In" Type="Int32" />
+            <Parameter Name="idPrerequisito" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CrearConvocatoria">
+            <Parameter Name="fecha_ini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_fin" Mode="In" Type="DateTime" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CrearConvocatoriaTest">
+            <Parameter Name="idConvocatoria" Mode="In" Type="Int32" />
+            <Parameter Name="tipo" Mode="In" Type="Int32" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="tiempo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CrearModulo" ReturnType="Collection(Int32)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="desc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CrearPrueba">
+            <Parameter Name="EstudianteID" Mode="In" Type="Int32" />
+            <Parameter Name="ConvocatoriaTestID" Mode="In" Type="Int32" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetTest" ReturnType="Collection(DatabaseEspamModel.GetTest_Result)">
+          <Parameter Name="TestID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetTestID" ReturnType="Collection(Int32)">
+            <Parameter Name="id_Conv" Mode="In" Type="Int32" />
+            <Parameter Name="Tipo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GuardarRespuestaPregunta">
+            <Parameter Name="PruebaID" Mode="In" Type="Int32" />
+            <Parameter Name="PreguntaID" Mode="In" Type="Int32" />
+            <Parameter Name="opcion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ModulosParaPreRequisitos" ReturnType="Collection(DatabaseEspamModel.ModulosParaPreRequisitos_Result)" />
+        </EntityContainer>
+        <ComplexType Name="GetTest_Result">
+          <Property Type="String" Name="pregunta" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="opcion1" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="opcion2" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="opcion3" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="opcion4" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="opcion_correcta" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="ModulosParaPreRequisitos_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseEspamModelStoreContainer" CdmEntityContainer="DatabaseEspamEntities">
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Administradors">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Administrador">
+              <MappingFragment StoreEntitySet="Administrador">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Convocatorias">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Convocatoria">
+              <MappingFragment StoreEntitySet="Convocatoria">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConvocatoriaTests">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.ConvocatoriaTest">
+              <MappingFragment StoreEntitySet="ConvocatoriaTest">
+                <ScalarProperty Name="ConvocatoriaTestID" ColumnName="ConvocatoriaTestID" />
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
+                <ScalarProperty Name="ConvocatoriaID" ColumnName="ConvocatoriaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estudiantes">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiantes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Carrera" ColumnName="Carrera" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulos">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Modulo">
+              <MappingFragment StoreEntitySet="Modulos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Syllabus" ColumnName="Syllabus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pregunta_estudiante">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Pregunta_estudiante">
+              <MappingFragment StoreEntitySet="Pregunta_estudiante">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_pregunta" ColumnName="Id_pregunta" />
+                <ScalarProperty Name="PruebaID" ColumnName="PruebaID" />
+                <ScalarProperty Name="opcion" ColumnName="opcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Preguntas">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Pregunta">
+              <MappingFragment StoreEntitySet="Preguntas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="pregunta1" ColumnName="pregunta" />
+                <ScalarProperty Name="opcion1" ColumnName="opcion1" />
+                <ScalarProperty Name="opcion2" ColumnName="opcion2" />
+                <ScalarProperty Name="opcion3" ColumnName="opcion3" />
+                <ScalarProperty Name="opcion4" ColumnName="opcion4" />
+                <ScalarProperty Name="opcion_correcta" ColumnName="opcion_correcta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pruebas">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Prueba">
+              <MappingFragment StoreEntitySet="Prueba">
+                <ScalarProperty Name="PruebaID" ColumnName="PruebaID" />
+                <ScalarProperty Name="ConvocatoriaTestID" ColumnName="ConvocatoriaTestID" />
+                <ScalarProperty Name="Id_estudiante" ColumnName="Id_estudiante" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tests">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Test">
+              <MappingFragment StoreEntitySet="Test">
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
+                <ScalarProperty Name="TipoTestID" ColumnName="TipoTestID" />
+                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+                <ScalarProperty Name="tiempo" ColumnName="tiempo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoTests">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.TipoTest">
+              <MappingFragment StoreEntitySet="TipoTest">
+                <ScalarProperty Name="TipoTestId" ColumnName="TipoTestId" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Test_Pregunta" TypeName="DatabaseEspamModel.Test_Pregunta" StoreEntitySet="Test_Pregunta">
+            <EndProperty Name="Preguntas">
+              <ScalarProperty Name="Id" ColumnName="Id_pregunta" />
+            </EndProperty>
+            <EndProperty Name="Test">
+              <ScalarProperty Name="TestID" ColumnName="Id_test" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="AgregarPreguntaATest" FunctionName="DatabaseEspamModel.Store.AgregarPreguntaATest" />
+          <FunctionImportMapping FunctionImportName="AgregarPrerequisitos" FunctionName="DatabaseEspamModel.Store.AgregarPrerequisitos" />
+          <FunctionImportMapping FunctionImportName="CrearConvocatoria" FunctionName="DatabaseEspamModel.Store.CrearConvocatoria" />
+          <FunctionImportMapping FunctionImportName="CrearConvocatoriaTest" FunctionName="DatabaseEspamModel.Store.CrearConvocatoriaTest" />
+          <FunctionImportMapping FunctionImportName="CrearModulo" FunctionName="DatabaseEspamModel.Store.CrearModulo" />
+          <FunctionImportMapping FunctionImportName="CrearPrueba" FunctionName="DatabaseEspamModel.Store.CrearPrueba" />
+          <FunctionImportMapping FunctionImportName="GetTest" FunctionName="DatabaseEspamModel.Store.GetTest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabaseEspamModel.GetTest_Result">
+                <ScalarProperty Name="pregunta" ColumnName="pregunta" />
+                <ScalarProperty Name="opcion1" ColumnName="opcion1" />
+                <ScalarProperty Name="opcion2" ColumnName="opcion2" />
+                <ScalarProperty Name="opcion3" ColumnName="opcion3" />
+                <ScalarProperty Name="opcion4" ColumnName="opcion4" />
+                <ScalarProperty Name="opcion_correcta" ColumnName="opcion_correcta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTestID" FunctionName="DatabaseEspamModel.Store.GetTestID" />
+          <FunctionImportMapping FunctionImportName="GuardarRespuestaPregunta" FunctionName="DatabaseEspamModel.Store.GuardarRespuestaPregunta" />
+          <FunctionImportMapping FunctionImportName="ModulosParaPreRequisitos" FunctionName="DatabaseEspamModel.Store.ModulosParaPreRequisitos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabaseEspamModel.ModulosParaPreRequisitos_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

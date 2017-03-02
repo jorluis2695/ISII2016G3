@@ -8,7 +8,7 @@ namespace AppTest.Controllers
 {
     public class ConvocatoriaController : Controller
     {
-        private AppTestContext db = new AppTestContext();
+        private DatabaseEspamEntities db = new DatabaseEspamEntities();
 
         // GET: Convocatoria
         public async Task<ActionResult> Index()

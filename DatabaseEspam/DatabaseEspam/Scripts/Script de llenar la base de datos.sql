@@ -21,4 +21,4 @@ select * from TipoTest
 select * from Test
 select * from ConvocatoriaTest
 
-
+set dateformat YMD
