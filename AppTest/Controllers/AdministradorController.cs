@@ -39,7 +39,7 @@ namespace AppTest.Controllers
         }
         public ActionResult nuevoModulo()
         {
-            return View("../Convocatoria/Create");
+            return View();
         }
         public ActionResult asignarModulo()
         {

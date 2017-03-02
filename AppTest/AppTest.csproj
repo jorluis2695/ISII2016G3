@@ -608,10 +608,11 @@
     <Content Include="Views\Estudiante\Index.cshtml" />
     <Content Include="Views\Estudiante\TestAptitudes.cshtml" />
     <Content Include="Views\Estudiante\TestPostulacion.cshtml" />
+    <Content Include="Views\Administrador\CrearTest.cshtml" />
+    <Content Include="Views\Administrador\nuevoModulo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Administrador\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

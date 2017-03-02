@@ -1,45 +1,46 @@
-﻿@model AppTest.Models.Test
-
+﻿
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "CrearTest";
     Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
 }
 
-<br />
+<h2>CrearTest</h2>
 
-<h2>Añadir Test</h2>
-
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.TipoTestID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TipoTestID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TipoTestID, "", new { @class = "text-danger" })
+<div class="form-group">
+    <div>
+        <label class="col-sm-push-12 control-label "> Pregunta 1</label>
+    </div>
+    <div>
+        <div class="col-sm-10">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="">Opcion 1
+                </label>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.nombreTest, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nombreTest, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nombreTest, "", new { @class = "text-danger" })
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="">Opcion2
+                </label>
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Añadir" class="btn btn-default" />
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="">Opcion3
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="">Opcion4
+                </label>
             </div>
         </div>
     </div>
-}
+</div>
+
+<div class="form-group">
+    <div class="col-sm-12">
+        <button type="submit" class="btn btn-default pull-right">Submit</button>
+    </div>
+</div>
 
 @section Widgets{
     <li class="panel">
@@ -109,4 +110,3 @@
         </ul>
     </li>
 }
-

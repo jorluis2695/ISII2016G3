@@ -1,52 +1,20 @@
-﻿@model AppTest.Models.Test
-
+﻿
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "nuevoModulo";
     Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
 }
 
-<br />
-
-<h2>Añadir Test</h2>
+<h2>nuevoModulo</h2>
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.TipoTestID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TipoTestID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TipoTestID, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.nombreTest, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nombreTest, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nombreTest, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Añadir" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
 
 @section Widgets{
     <li class="panel">
-        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#convocatorias">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#convocatorias">
             <i class="fa fa-edit"></i>Convocatorias<i class="fa fa-caret-down"></i>
         </a>
-        <ul class="collapse nav in" id="convocatorias">
+        <ul class="collapse nav" id="convocatorias">
             <li>
                 <a href="@Url.Action("nuevaConvocatoria")">
                     <i class="fa fa-angle-double-right"></i> Nueva Convocatoria
@@ -87,10 +55,10 @@
         </ul>
     </li>
     <li class="panel">
-        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#modulos">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#modulos">
             <i class="fa fa-edit"></i>Módulos<i class="fa fa-caret-down"></i>
         </a>
-        <ul class="collapse nav" id="modulos">
+        <ul class="collapse nav in" id="modulos">
             <li>
                 <a href="@Url.Action("nuevoModulo")">
                     <i class="fa fa-angle-double-right"></i> Ingresar Módulos
@@ -109,4 +77,3 @@
         </ul>
     </li>
 }
-
