@@ -65,18 +65,67 @@
 
 @section Widgets{
     <li class="panel">
-        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
-            <i class="fa fa-edit"></i> Menu de Tests <i class="fa fa-caret-down"></i>
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#convocatorias">
+            <i class="fa fa-edit"></i>Convocatorias<i class="fa fa-caret-down"></i>
         </a>
-        <ul class="collapse nav in" id="forms">
+        <ul class="collapse nav in" id="convocatorias">
             <li>
-                <a href="@Url.Action("Index")">
-                    <i class="fa fa-angle-double-right"></i> Lista de Convocatorias
+                <a href="@Url.Action("nuevaConvocatoria")">
+                    <i class="fa fa-angle-double-right"></i> Nueva Convocatoria
                 </a>
             </li>
             <li>
-                <a href="@Url.Action("Create")">
-                    <i class="fa fa-angle-double-right"></i> Añadir una nueva Convocatoria
+                <a href="@Url.Action("nuevoTestAptitudes")">
+                    <i class="fa fa-angle-double-right"></i> Crear Test Aptitudes
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("nuevoTestPostulacion")">
+                    <i class="fa fa-angle-double-right"></i> Crear Test Postulacion
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("reporteConvocatorias")">
+                    <i class="fa fa-angle-double-right"></i> Reporte Resultados
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="panel">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#docentes">
+            <i class="fa fa-edit"></i>Docentes<i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse nav" id="docentes">
+            <li>
+                <a href="@Url.Action("nuevoDocente")">
+                    <i class="fa fa-angle-double-right"></i> Ingresar Docente
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("nuevoCoordinador")">
+                    <i class="fa fa-angle-double-right"></i> Ingresar Coordinador
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="panel">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#modulos">
+            <i class="fa fa-edit"></i>Módulos<i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse nav" id="modulos">
+            <li>
+                <a href="@Url.Action("nuevoModulo")">
+                    <i class="fa fa-angle-double-right"></i> Ingresar Módulos
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("asignarModulo")">
+                    <i class="fa fa-angle-double-right"></i> Asignar Módulos
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("reporteModulos")">
+                    <i class="fa fa-angle-double-right"></i> Reporte por Módulos
                 </a>
             </li>
         </ul>
