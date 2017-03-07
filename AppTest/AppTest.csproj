@@ -610,6 +610,7 @@
     <Content Include="Views\Estudiante\TestPostulacion.cshtml" />
     <Content Include="Views\Administrador\CrearTest.cshtml" />
     <Content Include="Views\Administrador\nuevoModulo.cshtml" />
+    <Content Include="Views\Administrador\crearConvocatoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
