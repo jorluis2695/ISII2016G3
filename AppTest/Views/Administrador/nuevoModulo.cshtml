@@ -3,77 +3,104 @@
     ViewBag.Title = "nuevoModulo";
     Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
 }
+<br />
+<br />
+<div class="row">
 
-<h2>nuevoModulo</h2>
+    <div class="col-lg-6">
+
+        <div class="portlet portlet-default">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    <h4>Ingresar Información del Nuevo Módulo</h4>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="portlet-body">
+
+                <form accept-charset="UTF-8" role="form" method="post" action="@Url.Action("crearModulo")">
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" style="max-width:100%;" placeholder="Nombre" name="nombre" type="text">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" style="max-width:100%; height: 110px;" placeholder="Descripción" name="descripcion" type="password" value=""></textarea>
+                        </div>
+                        <input type="submit" href="" value="Crear" class="btn btn-default">
+                    </fieldset> 
+                </form>
+
+            </div>
+        </div>
+        </div>
+    </div>
 
 
-
-
-@section Widgets{
-    <li class="panel">
-        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#convocatorias">
-            <i class="fa fa-edit"></i>Convocatorias<i class="fa fa-caret-down"></i>
-        </a>
-        <ul class="collapse nav" id="convocatorias">
-            <li>
-                <a href="@Url.Action("nuevaConvocatoria")">
-                    <i class="fa fa-angle-double-right"></i> Nueva Convocatoria
+        @section Widgets{
+            <li class="panel">
+                <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#convocatorias">
+                    <i class="fa fa-edit"></i>Convocatorias<i class="fa fa-caret-down"></i>
                 </a>
+                <ul class="collapse nav" id="convocatorias">
+                    <li>
+                        <a href="@Url.Action("nuevaConvocatoria")">
+                            <i class="fa fa-angle-double-right"></i> Nueva Convocatoria
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("nuevoTestAptitudes")">
+                            <i class="fa fa-angle-double-right"></i> Crear Test Aptitudes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("nuevoTestPostulacion")">
+                            <i class="fa fa-angle-double-right"></i> Crear Test Postulacion
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("reporteConvocatorias")">
+                            <i class="fa fa-angle-double-right"></i> Reporte Resultados
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li>
-                <a href="@Url.Action("nuevoTestAptitudes")">
-                    <i class="fa fa-angle-double-right"></i> Crear Test Aptitudes
+            <li class="panel">
+                <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#docentes">
+                    <i class="fa fa-edit"></i>Docentes<i class="fa fa-caret-down"></i>
                 </a>
+                <ul class="collapse nav" id="docentes">
+                    <li>
+                        <a href="@Url.Action("nuevoDocente")">
+                            <i class="fa fa-angle-double-right"></i> Ingresar Docente
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("nuevoCoordinador")">
+                            <i class="fa fa-angle-double-right"></i> Ingresar Coordinador
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li>
-                <a href="@Url.Action("nuevoTestPostulacion")">
-                    <i class="fa fa-angle-double-right"></i> Crear Test Postulacion
+            <li class="panel">
+                <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#modulos">
+                    <i class="fa fa-edit"></i>Módulos<i class="fa fa-caret-down"></i>
                 </a>
+                <ul class="collapse nav in" id="modulos">
+                    <li>
+                        <a href="@Url.Action("nuevoModulo")">
+                            <i class="fa fa-angle-double-right"></i> Ingresar Módulos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("asignarModulo")">
+                            <i class="fa fa-angle-double-right"></i> Asignar Módulos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("reporteModulos")">
+                            <i class="fa fa-angle-double-right"></i> Reporte por Módulos
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li>
-                <a href="@Url.Action("reporteConvocatorias")">
-                    <i class="fa fa-angle-double-right"></i> Reporte Resultados
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="panel">
-        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#docentes">
-            <i class="fa fa-edit"></i>Docentes<i class="fa fa-caret-down"></i>
-        </a>
-        <ul class="collapse nav" id="docentes">
-            <li>
-                <a href="@Url.Action("nuevoDocente")">
-                    <i class="fa fa-angle-double-right"></i> Ingresar Docente
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("nuevoCoordinador")">
-                    <i class="fa fa-angle-double-right"></i> Ingresar Coordinador
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="panel">
-        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#modulos">
-            <i class="fa fa-edit"></i>Módulos<i class="fa fa-caret-down"></i>
-        </a>
-        <ul class="collapse nav in" id="modulos">
-            <li>
-                <a href="@Url.Action("nuevoModulo")">
-                    <i class="fa fa-angle-double-right"></i> Ingresar Módulos
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("asignarModulo")">
-                    <i class="fa fa-angle-double-right"></i> Asignar Módulos
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("reporteModulos")">
-                    <i class="fa fa-angle-double-right"></i> Reporte por Módulos
-                </a>
-            </li>
-        </ul>
-    </li>
-}
+        }

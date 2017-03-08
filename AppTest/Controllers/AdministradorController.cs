@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AppTest.Models;
 
 namespace AppTest.Controllers
 {
     public class AdministradorController : Controller
     {
+
+        private DatabaseEspamEntities db = new DatabaseEspamEntities();
         // GET: Administrador
         public ActionResult Index()
         {
@@ -49,6 +56,14 @@ namespace AppTest.Controllers
         {
             return View("../Reportes/calificacionesModulos");
         }
-        
+
+        [HttpPost]
+        public ActionResult crearModulo(string nombre, string descripcion)
+
+        {
+            db.CrearModulo(nombre, descripcion);
+            return View("nuevoModulo");
+        }
+
     }
 }
