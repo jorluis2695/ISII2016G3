@@ -30,5 +30,27 @@ namespace AppTest.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Ingresar(string usuario)
+
+        {
+            if (usuario == "estudiante")
+            {
+                return Redirect("../Estudiante");
+            } else if(usuario == "admin")
+            {
+                return Redirect("../Administrador");
+            } else
+            {
+                return View("Index");
+            }
+                    
+               
+
+
+        }
+
+
     }
 }

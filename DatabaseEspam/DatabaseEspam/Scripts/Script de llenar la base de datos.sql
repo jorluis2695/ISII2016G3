@@ -8,9 +8,13 @@ insert into TipoTest values('Test de Postulacion')
 
 Select SCOPE_IDENTITY()
 
+CrearConvocatoria '12-01-2017', '12-04-2017', 'asdf'
+
 CrearConvocatoriaTest '1', '1', '12-01-2017', '120'
 CrearConvocatoriaTest '1', '2', '12-01-2017', '120'
 
+AgregarPreguntaATest '1', 'pregunta  2345', 'op15', 'op25', 'op35', 'op45', '2'
+AgregarPreguntaATest '1', 'pregunta ', 'op1', 'op2', 'op3', 'op4', '5'
 Delete from Modulos
 
 
@@ -20,5 +24,9 @@ select * from Convocatoria
 select * from TipoTest
 select * from Test
 select * from ConvocatoriaTest
+select * from Preguntas
+select * from Test_Pregunta
 
+set dateformat YMD
 
+insert into TipoTest (Descripcion)  values ('Test Postulacion')

@@ -12,20 +12,23 @@ namespace AppTest.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Convocatoria
+    public partial class Prueba
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Convocatoria()
+        public Prueba()
         {
-            this.ConvocatoriaTests = new HashSet<ConvocatoriaTest>();
+            this.Pregunta_estudiante = new HashSet<Pregunta_estudiante>();
         }
     
-        public int Id { get; set; }
-        public Nullable<System.DateTime> fecha_inicio { get; set; }
-        public Nullable<System.DateTime> fecha_fin { get; set; }
-        public string descripcion { get; set; }
+        public int PruebaID { get; set; }
+        public Nullable<int> ConvocatoriaTestID { get; set; }
+        public Nullable<int> Id_estudiante { get; set; }
+        public Nullable<System.DateTime> Fecha { get; set; }
+        public Nullable<double> Calificacion { get; set; }
     
+        public virtual ConvocatoriaTest ConvocatoriaTest { get; set; }
+        public virtual Estudiante Estudiante { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConvocatoriaTest> ConvocatoriaTests { get; set; }
+        public virtual ICollection<Pregunta_estudiante> Pregunta_estudiante { get; set; }
     }
 }

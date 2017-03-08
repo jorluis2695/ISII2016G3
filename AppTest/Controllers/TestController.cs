@@ -142,7 +142,7 @@ namespace AppTest.Controllers
             LinkedList<Pregunta> aP = new LinkedList<Pregunta>();
             foreach (Testpregunta t in tR)
             {
-                Pregunta pU = (Pregunta)db.Preguntas.Where(p => p.preguntaID.Equals(t.IdPregunta)).First();
+                Pregunta pU = (Pregunta)db.Preguntas.Where(p => p.Id.Equals(t.IdPregunta)).First();
                 aP.AddLast(pU);
             }
             return View(aP);

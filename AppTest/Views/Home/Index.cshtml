@@ -73,10 +73,11 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="portlet-body">
-                    <form accept-charset="UTF-8" role="form">
+                   
+                    <form accept-charset="UTF-8" role="form" method="post" action="@Url.Action("Ingresar")">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="text">
+                                <input class="form-control" placeholder="E-mail" name="usuario" type="text">
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -87,13 +88,14 @@
                                 </label>
                             </div>
                             <br>
-                            <a href="" class="btn btn-lg btn-green btn-block">Iniciar Sesión</a>
+                            <input type="submit" href="" value="Iniciar Sesión" class="btn btn-lg btn-green btn-block">
                         </fieldset>
                         <br>
                         <p class="small">
                             <a href="#">Olvidaste tu contraseña?</a>
                         </p>
                     </form>
+                    
                 </div>
             </div>
         </div>
