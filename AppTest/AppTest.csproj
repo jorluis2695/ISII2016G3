@@ -608,9 +608,10 @@
     <Content Include="Views\Estudiante\Index.cshtml" />
     <Content Include="Views\Estudiante\TestAptitudes.cshtml" />
     <Content Include="Views\Estudiante\TestPostulacion.cshtml" />
-    <Content Include="Views\Administrador\CrearTest.cshtml" />
+    <Content Include="Views\Administrador\CrearTestAptitudes.cshtml" />
     <Content Include="Views\Administrador\nuevoModulo.cshtml" />
     <Content Include="Views\Administrador\crearConvocatoria.cshtml" />
+    <Content Include="Views\Administrador\crearTestPostulacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

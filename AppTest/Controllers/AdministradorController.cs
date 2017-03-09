@@ -26,11 +26,11 @@ namespace AppTest.Controllers
         }
         public ActionResult nuevoTestAptitudes()
         {
-            return View("../Test/Create");
+            return View("crearTestAptitudes");
         }
         public ActionResult nuevoTestPostulacion()
         {
-            return View("../Test/Create");
+            return View("crearTestPostulacion");
         }
         public ActionResult reporteConvocatorias()
         {

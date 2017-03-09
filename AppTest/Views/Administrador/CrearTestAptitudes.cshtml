@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "CrearTestAptitudes";
+    Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
+}
+<br />
+<br />
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <div class="portlet portlet-default">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    <h4>Ingresar nuevo Test de Aptitudes</h4>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="portlet-body">
+
+                <div class="row">
+                    <div class="col-lg-offset-1 col-lg-8">
+                        <!-- /input-group -->
+                        <h4>Nombre del Test</h4>
+                        <div>
+                            <input class="form-control" type="text" />
+                        </div>
+                        <br>
+                        <h4>Preguntas</h4>
+                        <div id="Preguntas">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-5 btn btn-default" id="mostrarPregunta" data-toggle="modal" data-target="#myModal">Agregar Nueva</div>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-default">Guardar Test</button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+                function agregaPregunta(){
+                    var espacioPreguntas = document.getElementById("Preguntas");
+                    var divpregunta = document.createElement("div");
+                    espacioPreguntas.appendChild(divpregunta);
+                    divpregunta.setAttribute("class", "pregunta");
+                    var nomPreg = document.createElement("H5");
+                    nomPreg.innerHTML = "Pregunta: " + document.getElementById("txtPregunta").value;
+                    var opt = document.createElement("H6");
+                    opt.innerHTML = "Opcion 1: " + document.getElementById("opt1").value;
+                    var opt1 = document.createElement("H6");
+                    opt1.innerHTML = "Opcion 2: " + document.getElementById("opt2").value;
+                    var opt2 = document.createElement("H6");
+                    opt2.innerHTML = "Opcion 3: " +  document.getElementById("opt3").value;
+                    var opt3 = document.createElement("H6");
+                    opt3.innerHTML = "Opcion 4: " + document.getElementById("opt4").value;
+                    espacio = document.createElement("br");
+
+                    divpregunta.appendChild(nomPreg);
+                    divpregunta.appendChild(opt);
+                    divpregunta.appendChild(espacio);
+                    divpregunta.appendChild(opt1);
+                    divpregunta.appendChild(espacio);
+                    divpregunta.appendChild(opt2);
+                    divpregunta.appendChild(espacio);
+                    divpregunta.appendChild(opt3);
+                    divpregunta.appendChild(espacio);
+
+                    document.getElementById("txtPregunta").value="";
+                    document.getElementById("opt1").value="";
+                    document.getElementById("opt2").value="";
+                    document.getElementById("opt3").value="";
+                    document.getElementById("opt4").value = "";
+                    mostrarDiv();
+                }
+</script>
+
+
+@section Widgets{
+    <li class="panel">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#convocatorias">
+            <i class="fa fa-edit"></i>Convocatorias<i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse nav in" id="convocatorias">
+            <li>
+                <a href="@Url.Action("nuevaConvocatoria")">
+                    <i class="fa fa-angle-double-right"></i> Nueva Convocatoria
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("nuevoTestAptitudes")">
+                    <i class="fa fa-angle-double-right"></i> Crear Test Aptitudes
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("nuevoTestPostulacion")">
+                    <i class="fa fa-angle-double-right"></i> Crear Test Postulacion
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("reporteConvocatorias")">
+                    <i class="fa fa-angle-double-right"></i> Reporte Resultados
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="panel">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#docentes">
+            <i class="fa fa-edit"></i>Docentes<i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse nav" id="docentes">
+            <li>
+                <a href="@Url.Action("nuevoDocente")">
+                    <i class="fa fa-angle-double-right"></i> Ingresar Docente
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("nuevoCoordinador")">
+                    <i class="fa fa-angle-double-right"></i> Ingresar Coordinador
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="panel">
+        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#modulos">
+            <i class="fa fa-edit"></i>Módulos<i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse nav" id="modulos">
+            <li>
+                <a href="@Url.Action("nuevoModulo")">
+                    <i class="fa fa-angle-double-right"></i> Ingresar Módulos
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("asignarModulo")">
+                    <i class="fa fa-angle-double-right"></i> Asignar Módulos
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("reporteModulos")">
+                    <i class="fa fa-angle-double-right"></i> Reporte por Módulos
+                </a>
+            </li>
+        </ul>
+    </li>
+}
+
+@section Modals{
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="left: 0;">
+        <div class="modal-content modal-u-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Ingresar Datos</h4>
+            </div>
+            <div class="modal-body" style="padding-left: 50px;">
+                <div id="nPregunta">
+                    <h5>Ingrese el nombre de la pregunta</h5>
+                    <br />
+                    <input class="form-control" type="text" id="txtPregunta" />
+                    <br />
+                    <h5>Marque la opcion correcta</h5>
+                    <br />
+                    <div class="row"><input class="col-lg-1" type="radio" name="n_pregunta" value="1"><input class="col-lg-offset-1 col-lg-9" type="text" id="opt1" /></div>
+                    <br />
+                    <div class="row"><input class="col-lg-1" type="radio" name="n_pregunta" value="2"><input class="col-lg-offset-1 col-lg-9" type="text" id="opt2" /></div>
+                    <br />
+                    <div class="row"><input class="col-lg-1" type="radio" name="n_pregunta" value="3"><input class="col-lg-offset-1 col-lg-9" type="text" id="opt3" /></div>
+                    <br />
+                    <div class="row"><input class="col-lg-1" type="radio" name="n_pregunta" value="4"><input class="col-lg-offset-1 col-lg-9" type="text" id="opt4" /></div>
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn" id="registrarPaciente" onclick="agregaPregunta();" data-dismiss="modal">Registrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+    
+    
+    }
