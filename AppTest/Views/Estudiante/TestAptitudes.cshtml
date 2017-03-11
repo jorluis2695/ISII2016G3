@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<AppTest.Models.GetTest_Result>
 @{
-    ViewBag.Title = "Test";
+    ViewBag.Title = "TestAptitudes";
     Layout = "~/Views/Shared/_MasterPlantilla.cshtml";
 }
 
@@ -68,9 +68,14 @@
         <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#aptitudes">
             <i class="fa fa-edit"></i>Tests<i class="fa fa-caret-down"></i>
         </a>
-        <ul class="collapse nav in" id="aptitudes">
+        <ul class="collapse nav" id="aptitudes">
             <li>
-                <a class="active" href="@Url.Action("TestAptitudes")">
+                <a href="@Url.Action("Informacion")">
+                    <i class="fa fa-angle-double-right"></i> Información del Estudiante
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("TestAptitudes")">
                     <i class="fa fa-angle-double-right"></i> Test de Aptitudes
                 </a>
             </li>

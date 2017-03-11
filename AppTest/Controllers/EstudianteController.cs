@@ -24,6 +24,12 @@ namespace AppTest.Controllers
             return View();
         
         }
+        public ActionResult Informacion()
+        {
+
+            return View("Index");
+
+        }
         public ActionResult TestAptitudes()
         {
             return View(db.GetTest(1).ToList());
