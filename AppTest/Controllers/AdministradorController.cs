@@ -70,9 +70,16 @@ namespace AppTest.Controllers
 
         {
             db.AgregarPreguntaATest(1,pregunta[0],pregunta[1],pregunta[2], pregunta[3], pregunta[4], Int32.Parse(pregunta[5]));
-            return View("crearConvocatoria");
+            return View("nuevoModulo");
         }
 
+        [HttpPost]
+        public ActionResult crearTestPostulacion(String[] pregunta)
+
+        {
+            db.AgregarPreguntaATest(2, pregunta[0], pregunta[1], pregunta[2], pregunta[3], pregunta[4], Int32.Parse(pregunta[5]));
+            return View("nuevoModulo");
+        }
 
     }
 }

@@ -32,3 +32,4 @@ select * from Test_Pregunta
 set dateformat YMD
 
 insert into TipoTest (Descripcion)  values ('Test Postulacion')
+

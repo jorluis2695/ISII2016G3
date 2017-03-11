@@ -13,7 +13,7 @@
         <div class="portlet portlet-default">
             <div class="portlet-heading">
                 <div class="portlet-title">
-                    <h4>Ingresar nuevo Test de Postulación</h4>
+                    <h4>Agregar preguntas al Test de Postulación</h4>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -22,11 +22,6 @@
                 <div class="row">
                     <div class="col-lg-offset-1 col-lg-8">
                         <!-- /input-group -->
-                        <h4>Nombre del Test</h4>
-                        <div>
-                            <input class="form-control" type="text" />
-                        </div>
-                        <br>
                         <h4>Preguntas</h4>
                         <div id="Preguntas">
                         </div>
@@ -38,7 +33,7 @@
                     </div>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-default">Guardar Test</button>
+                <button type="submit" class="btn btn-default" onclick="enviarFormulario();">Guardar Preguntas</button>
 
 
             </div>
@@ -47,40 +42,70 @@
 </div>
 
 <script>
-                function agregaPregunta(){
-                    var espacioPreguntas = document.getElementById("Preguntas");
-                    var divpregunta = document.createElement("div");
-                    espacioPreguntas.appendChild(divpregunta);
-                    divpregunta.setAttribute("class", "pregunta");
-                    var nomPreg = document.createElement("H5");
-                    nomPreg.innerHTML = "Pregunta: " + document.getElementById("txtPregunta").value;
-                    var opt = document.createElement("H6");
-                    opt.innerHTML = "Opcion 1: " + document.getElementById("opt1").value;
-                    var opt1 = document.createElement("H6");
-                    opt1.innerHTML = "Opcion 2: " + document.getElementById("opt2").value;
-                    var opt2 = document.createElement("H6");
-                    opt2.innerHTML = "Opcion 3: " +  document.getElementById("opt3").value;
-                    var opt3 = document.createElement("H6");
-                    opt3.innerHTML = "Opcion 4: " + document.getElementById("opt4").value;
-                    espacio = document.createElement("br");
+    var iterador = 0;
+    var pArreglo = [];
 
-                    divpregunta.appendChild(nomPreg);
-                    divpregunta.appendChild(opt);
-                    divpregunta.appendChild(espacio);
-                    divpregunta.appendChild(opt1);
-                    divpregunta.appendChild(espacio);
-                    divpregunta.appendChild(opt2);
-                    divpregunta.appendChild(espacio);
-                    divpregunta.appendChild(opt3);
-                    divpregunta.appendChild(espacio);
+    function agregaPregunta() {
+        var informacion= [];
+        var espacioPreguntas = document.getElementById("Preguntas");
+        var divpregunta = document.createElement("div");
+        espacioPreguntas.appendChild(divpregunta);
+        divpregunta.setAttribute("class", "pregunta");
+        var nomPreg = document.createElement("H5");
+        nomPreg.innerHTML = "Pregunta: " + document.getElementById("txtPregunta").value;
+        informacion[0] = document.getElementById("txtPregunta").value;
+        var opt = document.createElement("H6");
+        opt.innerHTML = "Opcion 1: " + document.getElementById("opt1").value;
+        informacion[1] = document.getElementById("opt1").value;
+        var opt1 = document.createElement("H6");
+        opt1.innerHTML = "Opcion 2: " + document.getElementById("opt2").value;
+        informacion[2] = document.getElementById("opt2").value;
+        var opt2 = document.createElement("H6");
+        opt2.innerHTML = "Opcion 3: " + document.getElementById("opt3").value;
+        informacion[3] = document.getElementById("opt3").value;
+        var opt3 = document.createElement("H6");
+        opt3.innerHTML = "Opcion 4: " + document.getElementById("opt4").value;
+        informacion[4] = document.getElementById("opt4").value;
+        espacio = document.createElement("br");
+        informacion[5]= $("input[name='n_pregunta']:checked").val();
 
-                    document.getElementById("txtPregunta").value="";
-                    document.getElementById("opt1").value="";
-                    document.getElementById("opt2").value="";
-                    document.getElementById("opt3").value="";
-                    document.getElementById("opt4").value = "";
-                    mostrarDiv();
-                }
+        pArreglo[iterador] = informacion;
+        iterador++;
+        divpregunta.appendChild(nomPreg);
+        divpregunta.appendChild(opt);
+        divpregunta.appendChild(espacio);
+        divpregunta.appendChild(opt1);
+        divpregunta.appendChild(espacio);
+        divpregunta.appendChild(opt2);
+        divpregunta.appendChild(espacio);
+        divpregunta.appendChild(opt3);
+        divpregunta.appendChild(espacio);
+        //console.log(informacion);
+
+        document.getElementById("txtPregunta").value="";
+        document.getElementById("opt1").value="";
+        document.getElementById("opt2").value="";
+        document.getElementById("opt3").value="";
+        document.getElementById("opt4").value = "";
+
+
+    }
+
+    function enviarFormulario() {
+        $.each(pArreglo, function (index, val) {
+            console.log(val);
+           $.ajax({
+                type: "POST",
+                url: "../Administrador/crearTestPostulacion",
+                data: JSON.stringify(val), //Maps the controller params
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function () { alert('Success'); }
+            });
+        });
+
+    }
+
 </script>
 
 
