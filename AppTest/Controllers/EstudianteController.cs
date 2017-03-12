@@ -37,7 +37,7 @@ namespace AppTest.Controllers
         }
         public ActionResult TestPostulacion()
         {
-            return View();
+            return View(db.GetTest(2).ToList());
 
         }
     }
