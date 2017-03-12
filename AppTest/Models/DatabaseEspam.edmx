@@ -37,6 +37,32 @@
           <Property Name="TestID" Type="int" />
           <Property Name="ConvocatoriaID" Type="int" />
         </EntityType>
+        <EntityType Name="Coordinadores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Docente" Type="int" />
+        </EntityType>
+        <EntityType Name="Docentes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="nchar" MaxLength="30" />
+          <Property Name="Apellidos" Type="nchar" MaxLength="30" />
+          <Property Name="Usuario" Type="nchar" MaxLength="15" />
+          <Property Name="Password" Type="nchar" MaxLength="15" />
+          <Property Name="Genero" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="DocentesModulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Modulo" Type="int" />
+          <Property Name="Id_Docente" Type="int" />
+        </EntityType>
         <EntityType Name="Estudiantes">
           <Key>
             <PropertyRef Name="Id" />
@@ -58,6 +84,12 @@
           <Property Name="Nombre" Type="text" />
           <Property Name="Syllabus" Type="text" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'DatabaseEspam.dbo.ModulosPrerequisitos' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ModulosPrerequisitos">
+          <Property Name="IdMod1" Type="int" />
+          <Property Name="IdMod2" Type="int" />
+        </EntityType>-->
         <EntityType Name="Pregunta_estudiante">
           <Key>
             <PropertyRef Name="Id" />
@@ -136,6 +168,42 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
             </Principal>
             <Dependent Role="ConvocatoriaTest">
               <PropertyRef Name="TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_docente">
+          <End Role="Docentes" Type="Self.Docentes" Multiplicity="0..1" />
+          <End Role="DocentesModulos" Type="Self.DocentesModulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docentes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocentesModulos">
+              <PropertyRef Name="Id_Docente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_docenteCoordinador">
+          <End Role="Docentes" Type="Self.Docentes" Multiplicity="0..1" />
+          <End Role="Coordinadores" Type="Self.Coordinadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docentes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coordinadores">
+              <PropertyRef Name="Id_Docente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_modulo">
+          <End Role="Modulos" Type="Self.Modulos" Multiplicity="0..1" />
+          <End Role="DocentesModulos" Type="Self.DocentesModulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocentesModulos">
+              <PropertyRef Name="Id_Modulo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -223,6 +291,10 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="AgregarModulosADocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idModulo" Type="int" Mode="In" />
+          <Parameter Name="idDocente" Type="int" Mode="In" />
+        </Function>
         <Function Name="AgregarPreguntaATest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idTest" Type="int" Mode="In" />
           <Parameter Name="pregunta" Type="ntext" Mode="In" />
@@ -235,6 +307,9 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
         <Function Name="AgregarPrerequisitos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idModulo" Type="int" Mode="In" />
           <Parameter Name="idPrerequisito" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CambiarDocenteCoordinador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDocente" Type="int" Mode="In" />
         </Function>
         <Function Name="CrearConvocatoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="fecha_ini" Type="date" Mode="In" />
@@ -277,6 +352,9 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Convocatoria" EntityType="Self.Convocatoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ConvocatoriaTest" EntityType="Self.ConvocatoriaTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coordinadores" EntityType="Self.Coordinadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Docentes" EntityType="Self.Docentes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocentesModulos" EntityType="Self.DocentesModulos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estudiantes" EntityType="Self.Estudiantes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pregunta_estudiante" EntityType="Self.Pregunta_estudiante" Schema="dbo" store:Type="Tables" />
@@ -297,6 +375,18 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <AssociationSet Name="FK_ConvocatoriaTest_Test" Association="Self.FK_ConvocatoriaTest_Test">
             <End Role="Test" EntitySet="Test" />
             <End Role="ConvocatoriaTest" EntitySet="ConvocatoriaTest" />
+          </AssociationSet>
+          <AssociationSet Name="fk_docente" Association="Self.fk_docente">
+            <End Role="Docentes" EntitySet="Docentes" />
+            <End Role="DocentesModulos" EntitySet="DocentesModulos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_docenteCoordinador" Association="Self.fk_docenteCoordinador">
+            <End Role="Docentes" EntitySet="Docentes" />
+            <End Role="Coordinadores" EntitySet="Coordinadores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_modulo" Association="Self.fk_modulo">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="DocentesModulos" EntitySet="DocentesModulos" />
           </AssociationSet>
           <AssociationSet Name="fk_pregunta" Association="Self.fk_pregunta">
             <End Role="Preguntas" EntitySet="Preguntas" />
@@ -388,6 +478,7 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Syllabus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DocentesModulos1" Relationship="DatabaseEspamModel.fk_modulo" FromRole="Modulo" ToRole="DocentesModulo" />
         </EntityType>
         <EntityType Name="Pregunta_estudiante">
           <Key>
@@ -628,6 +719,28 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <FunctionImport Name="GetEstudianteFromMatricula" ReturnType="Collection(DatabaseEspamModel.GetEstudianteFromMatricula_Result)">
           <Parameter Name="matri" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Coordinadores" EntityType="DatabaseEspamModel.Coordinadore" />
+          <EntitySet Name="Docentes" EntityType="DatabaseEspamModel.Docente" />
+          <EntitySet Name="DocentesModulos" EntityType="DatabaseEspamModel.DocentesModulo" />
+          <AssociationSet Name="fk_docenteCoordinador" Association="DatabaseEspamModel.fk_docenteCoordinador">
+            <End Role="Docente" EntitySet="Docentes" />
+            <End Role="Coordinadore" EntitySet="Coordinadores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_modulo" Association="DatabaseEspamModel.fk_modulo">
+            <End Role="Modulo" EntitySet="Modulos" />
+            <End Role="DocentesModulo" EntitySet="DocentesModulos" />
+          </AssociationSet>
+          <FunctionImport Name="AgregarModulosADocente">
+            <Parameter Name="idModulo" Mode="In" Type="Int32" />
+            <Parameter Name="idDocente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CambiarDocenteCoordinador">
+          <Parameter Name="IdDocente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="fk_docente1" Association="DatabaseEspamModel.fk_docente1">
+            <End Role="Docente" EntitySet="Docentes" />
+            <End Role="DocentesModulo" EntitySet="DocentesModulos" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GetTest_Result">
           <Property Type="String" Name="pregunta" Nullable="true" MaxLength="Max" />
@@ -650,6 +763,73 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <Property Type="String" Name="Genero" Nullable="true" MaxLength="15" />
           <Property Type="String" Name="Password" Nullable="true" MaxLength="16" />
         </ComplexType>
+        <EntityType Name="Coordinadore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Docente" Type="Int32" />
+          <NavigationProperty Name="Docente" Relationship="DatabaseEspamModel.fk_docenteCoordinador" FromRole="Coordinadore" ToRole="Docente" />
+        </EntityType>
+        <EntityType Name="Docente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Usuario" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Coordinadores" Relationship="DatabaseEspamModel.fk_docenteCoordinador" FromRole="Docente" ToRole="Coordinadore" />
+          <NavigationProperty Name="DocentesModulos" Relationship="DatabaseEspamModel.fk_docente1" FromRole="Docente" ToRole="DocentesModulo" />
+        </EntityType>
+        <EntityType Name="DocentesModulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Modulo" Type="Int32" />
+          <Property Name="Id_Docente" Type="Int32" />
+          <NavigationProperty Name="Modulo" Relationship="DatabaseEspamModel.fk_modulo" FromRole="DocentesModulo" ToRole="Modulo" />
+          <NavigationProperty Name="Docente" Relationship="DatabaseEspamModel.fk_docente1" FromRole="DocentesModulo" ToRole="Docente" />
+        </EntityType>
+        <Association Name="fk_docenteCoordinador">
+          <End Type="DatabaseEspamModel.Docente" Role="Docente" Multiplicity="0..1" />
+          <End Type="DatabaseEspamModel.Coordinadore" Role="Coordinadore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coordinadore">
+              <PropertyRef Name="Id_Docente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_modulo">
+          <End Type="DatabaseEspamModel.Modulo" Role="Modulo" Multiplicity="0..1" />
+          <End Type="DatabaseEspamModel.DocentesModulo" Role="DocentesModulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocentesModulo">
+              <PropertyRef Name="Id_Modulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_docente1">
+          <End Type="DatabaseEspamModel.Docente" Role="Docente" Multiplicity="0..1" />
+          <End Type="DatabaseEspamModel.DocentesModulo" Role="DocentesModulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocentesModulo">
+              <PropertyRef Name="Id_Docente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -816,6 +996,37 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Coordinadores">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Coordinadore">
+              <MappingFragment StoreEntitySet="Coordinadores">
+                <ScalarProperty Name="Id_Docente" ColumnName="Id_Docente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Docentes">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.Docente">
+              <MappingFragment StoreEntitySet="Docentes">
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocentesModulos">
+            <EntityTypeMapping TypeName="DatabaseEspamModel.DocentesModulo">
+              <MappingFragment StoreEntitySet="DocentesModulos">
+                <ScalarProperty Name="Id_Docente" ColumnName="Id_Docente" />
+                <ScalarProperty Name="Id_Modulo" ColumnName="Id_Modulo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AgregarModulosADocente" FunctionName="DatabaseEspamModel.Store.AgregarModulosADocente" />
+          <FunctionImportMapping FunctionImportName="CambiarDocenteCoordinador" FunctionName="DatabaseEspamModel.Store.CambiarDocenteCoordinador" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

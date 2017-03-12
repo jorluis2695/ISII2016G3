@@ -12,19 +12,25 @@ namespace AppTest.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Modulo
+    public partial class Docente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Modulo()
+        public Docente()
         {
-            this.DocentesModulos1 = new HashSet<DocentesModulo>();
+            this.Coordinadores = new HashSet<Coordinadore>();
+            this.DocentesModulos = new HashSet<DocentesModulo>();
         }
     
         public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Syllabus { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public string Usuario { get; set; }
+        public string Password { get; set; }
+        public string Genero { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DocentesModulo> DocentesModulos1 { get; set; }
+        public virtual ICollection<Coordinadore> Coordinadores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DocentesModulo> DocentesModulos { get; set; }
     }
 }

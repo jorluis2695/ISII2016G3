@@ -24,6 +24,12 @@
         <AssociationConnector Association="DatabaseEspamModel.FK_Pregunta_estudiante_ToTable_1" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseEspamModel.FK_Test_TipoTest" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseEspamModel.Test_Pregunta" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DatabaseEspamModel.Coordinadore" Width="1.5" PointX="12.75" PointY="9.25" />
+        <EntityTypeShape EntityType="DatabaseEspamModel.Docente" Width="1.5" PointX="10.5" PointY="8.875" />
+        <EntityTypeShape EntityType="DatabaseEspamModel.DocentesModulo" Width="1.5" PointX="8.125" PointY="10.5" />
+        <AssociationConnector Association="DatabaseEspamModel.fk_docenteCoordinador" />
+        <AssociationConnector Association="DatabaseEspamModel.fk_modulo" />
+        <AssociationConnector Association="DatabaseEspamModel.fk_docente1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

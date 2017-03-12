@@ -38,6 +38,9 @@ namespace AppTest.Models
         public virtual DbSet<Prueba> Pruebas { get; set; }
         public virtual DbSet<Test> Tests { get; set; }
         public virtual DbSet<TipoTest> TipoTests { get; set; }
+        public virtual DbSet<Coordinadore> Coordinadores { get; set; }
+        public virtual DbSet<Docente> Docentes { get; set; }
+        public virtual DbSet<DocentesModulo> DocentesModulos { get; set; }
     
         public virtual int AgregarPreguntaATest(Nullable<int> idTest, string pregunta, string op1, string op2, string op3, string op4, Nullable<int> opC)
         {
@@ -204,6 +207,28 @@ namespace AppTest.Models
                 new ObjectParameter("matri", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEstudianteFromMatricula_Result>("GetEstudianteFromMatricula", matriParameter);
+        }
+    
+        public virtual int AgregarModulosADocente(Nullable<int> idModulo, Nullable<int> idDocente)
+        {
+            var idModuloParameter = idModulo.HasValue ?
+                new ObjectParameter("idModulo", idModulo) :
+                new ObjectParameter("idModulo", typeof(int));
+    
+            var idDocenteParameter = idDocente.HasValue ?
+                new ObjectParameter("idDocente", idDocente) :
+                new ObjectParameter("idDocente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AgregarModulosADocente", idModuloParameter, idDocenteParameter);
+        }
+    
+        public virtual int CambiarDocenteCoordinador(Nullable<int> idDocente)
+        {
+            var idDocenteParameter = idDocente.HasValue ?
+                new ObjectParameter("IdDocente", idDocente) :
+                new ObjectParameter("IdDocente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CambiarDocenteCoordinador", idDocenteParameter);
         }
     }
 }
