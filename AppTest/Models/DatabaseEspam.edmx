@@ -58,12 +58,6 @@
           <Property Name="Nombre" Type="text" />
           <Property Name="Syllabus" Type="text" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'DatabaseEspam.dbo.ModulosPrerequisitos' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ModulosPrerequisitos">
-          <Property Name="IdMod1" Type="int" />
-          <Property Name="IdMod2" Type="int" />
-        </EntityType>-->
         <EntityType Name="Pregunta_estudiante">
           <Key>
             <PropertyRef Name="Id" />
@@ -261,6 +255,9 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <Parameter Name="EstudianteID" Type="int" Mode="In" />
           <Parameter Name="ConvocatoriaTestID" Type="int" Mode="In" />
           <Parameter Name="fecha" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GetEstudianteFromMatricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="matri" Type="nchar" Mode="In" />
         </Function>
         <Function Name="GetTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TestID" Type="int" Mode="In" />
@@ -628,6 +625,9 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
             <Parameter Name="opcion" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ModulosParaPreRequisitos" ReturnType="Collection(DatabaseEspamModel.ModulosParaPreRequisitos_Result)" />
+          <FunctionImport Name="GetEstudianteFromMatricula" ReturnType="Collection(DatabaseEspamModel.GetEstudianteFromMatricula_Result)">
+          <Parameter Name="matri" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetTest_Result">
           <Property Type="String" Name="pregunta" Nullable="true" MaxLength="Max" />
@@ -640,6 +640,15 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
         <ComplexType Name="ModulosParaPreRequisitos_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="GetEstudianteFromMatricula_Result">
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Carrera" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cedula" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Matricula" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Genero" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="16" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -791,6 +800,19 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
               <ComplexTypeMapping TypeName="DatabaseEspamModel.ModulosParaPreRequisitos_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetEstudianteFromMatricula" FunctionName="DatabaseEspamModel.Store.GetEstudianteFromMatricula">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabaseEspamModel.GetEstudianteFromMatricula_Result">
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Carrera" ColumnName="Carrera" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

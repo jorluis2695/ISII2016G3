@@ -196,5 +196,14 @@ namespace AppTest.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ModulosParaPreRequisitos_Result>("ModulosParaPreRequisitos");
         }
+    
+        public virtual ObjectResult<GetEstudianteFromMatricula_Result> GetEstudianteFromMatricula(string matri)
+        {
+            var matriParameter = matri != null ?
+                new ObjectParameter("matri", matri) :
+                new ObjectParameter("matri", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEstudianteFromMatricula_Result>("GetEstudianteFromMatricula", matriParameter);
+        }
     }
 }

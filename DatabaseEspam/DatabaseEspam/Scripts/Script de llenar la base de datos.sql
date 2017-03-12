@@ -4,12 +4,14 @@ CrearConvocatoria '10-02-2017', '20-03-2017', 'Primera Convocatoria'
 insert into TipoTest values('Test de Aptitudes')
 insert into TipoTest values('Test de Postulacion')
 
+insert into Estudiantes values('Julio Cesar',' Guilindro Ordoñez', 'Ingeniería en Ciencias Computacionales', '0923525273','201304810' , 'Masculino', '12345')
+
 --esta linea crea el test, y lo relaciona con una convocatoria
 
 Select SCOPE_IDENTITY()
 
 CrearConvocatoria '12-01-2017', '12-04-2017', 'Primera Convocatoria'
-
+GetEstudianteFromMatricula '201304810'
 CrearConvocatoriaTest '3', '1', '12-01-2017', '120'
 CrearConvocatoriaTest '3', '2', '12-01-2017', '120'
 
@@ -23,6 +25,7 @@ select * from Modulos
 
 select * from Convocatoria
 select * from Preguntas
+select * from Estudiantes
 select * from TipoTest
 select * from Test
 select * from ConvocatoriaTest
