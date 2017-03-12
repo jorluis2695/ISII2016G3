@@ -30,6 +30,12 @@ namespace AppTest.Controllers
             return View("Index");
 
         }
+        public ActionResult calificacionesModulos()
+        {
+
+            return View();
+
+        }
         public ActionResult TestAptitudes()
         {
             return View(db.GetTest(1).ToList());
@@ -39,6 +45,14 @@ namespace AppTest.Controllers
         {
             return View(db.GetTest(2).ToList());
 
+        }
+
+        [HttpPost]
+        public ActionResult enviarExamen(String[] pregunta)
+
+        {
+            db.AgregarPreguntaATest(1, pregunta[0], pregunta[1], pregunta[2], pregunta[3], pregunta[4], Int32.Parse(pregunta[5]));
+            return View("nuevoModulo");
         }
     }
 }
