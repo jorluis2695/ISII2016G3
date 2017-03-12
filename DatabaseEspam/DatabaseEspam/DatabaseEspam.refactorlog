@@ -49,4 +49,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="IdMod2" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="49110ee6-4209-48a8-8df7-9f4227f88dcb" ChangeDateTime="03/12/2017 22:14:21">
+    <Property Name="ElementName" Value="[dbo].[Docentes].[usuario]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Docentes]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Usuario" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="05905721-dca7-48a1-be2d-5960178af826" ChangeDateTime="03/12/2017 22:14:25">
+    <Property Name="ElementName" Value="[dbo].[Docentes].[password]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Docentes]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Password" />
+  </Operation>
 </Operations>
