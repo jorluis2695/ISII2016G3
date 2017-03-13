@@ -24,6 +24,18 @@ namespace AppTest.Controllers
             return View();
         
         }
+        public ActionResult calificacionesPostulacion()
+        {
+
+            return View();
+
+        }
+        public ActionResult calificacionesAptitudes()
+        {
+
+            return View();
+
+        }
         public ActionResult Informacion()
         {
 
@@ -60,6 +72,22 @@ namespace AppTest.Controllers
         {
             Session.Abandon();
             return RedirectToAction("Index", "Home");
+        }
+        [HttpPost]
+        public ActionResult obtenerRespuestasPostulacion(int [] respuestas)
+
+        {
+            Session["aciertosPostulacion"] = respuestas[0];
+            Session["fallasPostulacion"] = respuestas[1];
+            return View("calificacionesPostulacion");
+        }
+        [HttpPost]
+        public ActionResult obtenerRespuestasAptitudes(int[] respuestas)
+
+        {
+            Session["aciertosAptitudes"] = respuestas[0];
+            Session["fallasAptitudes"] = respuestas[1];
+            return View("calificacionesAptitudes");
         }
     }
 }

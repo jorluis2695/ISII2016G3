@@ -701,6 +701,14 @@
     <Content Include="Views\Administrador\crearTestPostulacion.cshtml" />
     <Content Include="Views\Estudiante\calificacionesModulos.cshtml" />
     <Content Include="Views\Administrador\nuevoDocente.cshtml" />
+    <Content Include="Views\Estudiante\calificacionesAptitudes.cshtml" />
+    <Content Include="Views\Estudiante\calificacionesPostulacion.cshtml" />
+    <Content Include="Views\Estudiante\mostrarCalificacionesAptitudes.cshtml" />
+    <Content Include="Views\Estudiante\noCalificaciones.cshtml" />
+    <Content Include="Views\Estudiante\mostrarCalificacionesPostulacion.cshtml" />
+    <Content Include="Views\Estudiante\mostrarTestAptitudes.cshtml" />
+    <Content Include="Views\Estudiante\noTest.cshtml" />
+    <Content Include="Views\Estudiante\mostrarTestPostulacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

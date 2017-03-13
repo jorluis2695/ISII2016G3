@@ -1,0 +1,103 @@
+﻿@model IEnumerable<AppTest.Models.GetTest_Result>
+<div class="portlet portlet">
+    <div class="portlet-heading">
+        <div class="portlet-title">
+            <h4>Test de Postulacion</h4>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div id="formControls" class="panel-collapse collapse in">
+        <div class="portlet-body">
+            <form class="form-horizontal" id="myForm">
+
+
+                @foreach (var item in Model)
+                {
+
+                    <div class="form-group">
+                        <div>
+                            <label class="col-sm-push-12 control-label "> @Html.DisplayFor(modelItem => item.pregunta)</label>
+                        </div>
+                        <div>
+                            <div class="col-sm-10">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="@Html.DisplayFor(modelItem => item.pregunta)" id="optionsRadios1" value="1" class="opcion">@Html.DisplayFor(modelItem => item.opcion1)
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="@Html.DisplayFor(modelItem => item.pregunta)" id="optionsRadios2" value="2" class="opcion">@Html.DisplayFor(modelItem => item.opcion2)
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="@Html.DisplayFor(modelItem => item.pregunta)" id="optionsRadios3" value="3" class="opcion">@Html.DisplayFor(modelItem => item.opcion3)
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="@Html.DisplayFor(modelItem => item.pregunta)" id="optionsRadios4" value="4" class="opcion">@Html.DisplayFor(modelItem => item.opcion4)
+                                    </label>
+                                </div>
+                                <label name="opcorrecta" style="visibility:hidden" id="respuesta">@Html.DisplayFor(modelItem => item.opcion_correcta)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-default pull-right" onclick="obtenerCalificacion();">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function obtenerCalificacion() {
+        var iterador = 0;
+        var respArreglo = [];
+        var correctas = [];
+        var calificacion = 0;
+        var respTotal= [];
+
+        $("#myForm input[type=radio]:checked").each(function () {
+                respArreglo[iterador] = $(this).val();
+                iterador++;
+        });
+        iterador = 0;
+        $('label[id]').each(function () {
+            correctas[iterador] = $(this).text().replace(/\s+/, "");
+            iterador++;
+        });
+
+        for (i = 0; i < correctas.length; i++) {
+            if (respArreglo[i] == correctas[i]) {
+                calificacion++;
+            }
+        }
+
+        respTotal[0]= calificacion;
+        respTotal[1] = correctas.length - calificacion;
+        enviarRespuestas(respTotal);
+        window.location= "../Estudiante/calificacionesPostulacion"
+        }
+
+    function enviarRespuestas(val) {
+           $.ajax({
+                type: "POST",
+                url: "../Estudiante/obtenerRespuestasPostulacion",
+                data: JSON.stringify(val), //Maps the controller params
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function () { alert('Success'); }
+            });
+    }
+
+</script>
+
