@@ -8,6 +8,7 @@ insert into Estudiantes values('Julio Cesar',' Guilindro Ordoñez', 'Ingeniería
 
 --esta linea crea el test, y lo relaciona con una convocatoria
 
+
 Select SCOPE_IDENTITY()
 
 CrearConvocatoria '12-01-2017', '12-04-2017', 'Primera Convocatoria'
@@ -24,6 +25,7 @@ Delete from Convocatoria
 select * from Modulos
 
 select * from Convocatoria
+select * from Docentes
 select * from Preguntas
 select * from Estudiantes
 select * from TipoTest

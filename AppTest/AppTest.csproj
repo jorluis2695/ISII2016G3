@@ -700,6 +700,7 @@
     <Content Include="Views\Administrador\crearConvocatoria.cshtml" />
     <Content Include="Views\Administrador\crearTestPostulacion.cshtml" />
     <Content Include="Views\Estudiante\calificacionesModulos.cshtml" />
+    <Content Include="Views\Administrador\nuevoDocente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

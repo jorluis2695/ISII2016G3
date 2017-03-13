@@ -6,8 +6,8 @@
     [Usuario] NVARCHAR(15) NULL, 
     [Password] NVARCHAR(15) NULL, 
     [Genero] NVARCHAR(10) NULL ,
-[Area] NVARCHAR(30) NULL, 
-    [Carrera] NVARCHAR(30) NULL, 
+[Area] NTEXT NULL, 
+    [Carrera] TEXT NULL, 
     PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

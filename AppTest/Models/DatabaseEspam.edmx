@@ -54,8 +54,8 @@
           <Property Name="Usuario" Type="nvarchar" MaxLength="15" />
           <Property Name="Password" Type="nvarchar" MaxLength="15" />
           <Property Name="Genero" Type="nvarchar" MaxLength="10" />
-          <Property Name="Area" Type="nvarchar" MaxLength="30" />
-          <Property Name="Carrera" Type="nvarchar" MaxLength="30" />
+          <Property Name="Area" Type="ntext" />
+          <Property Name="Carrera" Type="text" />
         </EntityType>
         <EntityType Name="DocentesModulos">
           <Key>
@@ -797,8 +797,8 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <Property Name="Genero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Coordinadores" Relationship="DatabaseEspamModel.fk_docenteCoordinador" FromRole="Docente" ToRole="Coordinadore" />
           <NavigationProperty Name="DocentesModulos" Relationship="DatabaseEspamModel.fk_docente1" FromRole="Docente" ToRole="DocentesModulo" />
-          <Property Name="Area" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Carrera" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Carrera" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="DocentesModulo">
           <Key>

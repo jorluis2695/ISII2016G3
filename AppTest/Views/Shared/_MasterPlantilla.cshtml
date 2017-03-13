@@ -147,9 +147,13 @@
                             <i class="fa fa-key"></i>Sesión iniciada como
                         </p>
                         <p class="name tooltip-sidebar-logout">
-                            @Session["nombres"].ToString()
+                            @if(Session["nombres"] != null){
+                            @Session["nombres"].ToString();
+                            } 
                             <span class="last-name">
-                               @Session["apellidos"].ToString()
+                              @if (Session["apellidos"] != null) {
+                                  @Session["apellidos"].ToString();
+                              }
                             </span><a style="color: inherit" class="logout_open" href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
                         </p>
                         <div class="clearfix"></div>
@@ -203,7 +207,7 @@
             <p>Seleccione "Cerrar Sesión" para salir.</p>
             <ul class="list-inline">
                 <li>
-                    <a href="/logIn.aspx" class="btn btn-green">
+                    <a class="btn btn-green" onclick="cerrarSesion();">
                         <strong>Cerrar Sesión</strong>
                     </a>
                 </li>
@@ -213,6 +217,16 @@
             </ul>
         </div>
     </div>
+    <script>
+        function cerrarSesion() {
+            $.ajax({
+                type: "POST",
+                url: "../Home/cerrarSesion",
+                success: function () { window.location = "../Home/Index" }
+            });
+
+        }
+    </script>
     <!-- /#logout -->
     <!-- Flex Modal -->
     <div class="modal modal-flex fade" id="detalles" tabindex="-1" role="dialog" aria-hidden="true">

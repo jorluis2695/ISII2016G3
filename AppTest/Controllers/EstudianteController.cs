@@ -54,5 +54,12 @@ namespace AppTest.Controllers
             db.AgregarPreguntaATest(1, pregunta[0], pregunta[1], pregunta[2], pregunta[3], pregunta[4], Int32.Parse(pregunta[5]));
             return View("nuevoModulo");
         }
+        [HttpPost]
+        public ActionResult cerrarSesion()
+
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

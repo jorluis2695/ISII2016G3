@@ -94,6 +94,11 @@ namespace AppTest.Controllers
            
         }
 
+        public ActionResult cerrarSesion()
 
+        {
+            Session.Abandon();
+            return View("Index");
+        }
     }
 }

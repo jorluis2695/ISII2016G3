@@ -38,7 +38,7 @@ namespace AppTest.Controllers
         }
         public ActionResult nuevoDocente()
         {
-            return View("../Convocatoria/Create");
+            return View();
         }
         public ActionResult nuevoCoordinador()
         {
@@ -82,11 +82,38 @@ namespace AppTest.Controllers
         }
 
         [HttpPost]
-        public ActionResult crearConvocatoria(DateTime fincio, DateTime ffinal, String descripcion)
+        public ActionResult crearConvocatoria(DateTime finicio, DateTime ffinal, String descripcion)
 
         {
-            db.CrearConvocatoria(fincio,ffinal,descripcion);
+            db.CrearConvocatoria(finicio,ffinal,descripcion);
             return View("crearConvocatoria");
+        }
+
+        [HttpPost]
+        public ActionResult nuevoDocente(string nombres, string apellidos, string genero, string area, string carrera, string usuario, string contrasena, string contrasenaVerificar)
+
+        {
+            if (contrasena == contrasenaVerificar)
+            {
+                db.AgregarDocente(nombres, apellidos, usuario, contrasena, genero, area, carrera);
+                return View("nuevoDocente");
+
+            }
+            return View("nuevoDocente");
+        }
+        [HttpPost]
+        public ActionResult nuevoCoordinador(string nombre, string descripcion)
+
+        {
+            db.CrearModulo(nombre, descripcion);
+            return View("nuevoModulo");
+        }
+        [HttpPost]
+        public ActionResult cerrarSesion()
+
+        {
+            Session.Clear();
+            return Redirect("../Home/Index");
         }
 
     }
