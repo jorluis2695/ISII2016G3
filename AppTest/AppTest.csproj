@@ -709,6 +709,8 @@
     <Content Include="Views\Estudiante\mostrarTestAptitudes.cshtml" />
     <Content Include="Views\Estudiante\noTest.cshtml" />
     <Content Include="Views\Estudiante\mostrarTestPostulacion.cshtml" />
+    <Content Include="Views\Administrador\asignarModulos.cshtml" />
+    <Content Include="Views\Administrador\asignarCoordinador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

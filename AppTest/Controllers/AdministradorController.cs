@@ -48,9 +48,9 @@ namespace AppTest.Controllers
         {
             return View();
         }
-        public ActionResult asignarModulo()
+        public ActionResult asignarModulos()
         {
-            return View("../Convocatoria/Create");
+            return View();
         }
         public ActionResult reporteModulos()
         {
