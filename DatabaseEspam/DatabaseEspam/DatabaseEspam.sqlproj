@@ -93,6 +93,7 @@
     <Build Include="dbo\Tables\Coordinadores.sql" />
     <Build Include="dbo\StoreProcedures\AgregarModulosADocente.sql" />
     <Build Include="dbo\StoreProcedures\CambiarDocenteCoordinador.sql" />
+    <Build Include="dbo\StoreProcedures\AgregarDocente.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DatabaseEspam.refactorlog" />

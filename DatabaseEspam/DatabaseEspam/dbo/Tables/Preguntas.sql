@@ -5,7 +5,7 @@
 	[opcion2] [ntext] NULL,
 	[opcion3] [ntext] NULL,
 	[opcion4] [ntext] NULL,
-	[opcion_correcta] [nchar](10) NULL,
+	[opcion_correcta] NVARCHAR(10) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

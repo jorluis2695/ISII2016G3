@@ -49,11 +49,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombres" Type="nchar" MaxLength="30" />
-          <Property Name="Apellidos" Type="nchar" MaxLength="30" />
-          <Property Name="Usuario" Type="nchar" MaxLength="15" />
-          <Property Name="Password" Type="nchar" MaxLength="15" />
-          <Property Name="Genero" Type="nchar" MaxLength="10" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="30" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="30" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="15" />
+          <Property Name="Password" Type="nvarchar" MaxLength="15" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="10" />
+          <Property Name="Area" Type="nvarchar" MaxLength="30" />
+          <Property Name="Carrera" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="DocentesModulos">
           <Key>
@@ -71,10 +73,10 @@
           <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
           <Property Name="Apellidos" Type="nvarchar" MaxLength="50" />
           <Property Name="Carrera" Type="nvarchar" MaxLength="50" />
-          <Property Name="Cedula" Type="nchar" MaxLength="10" />
-          <Property Name="Matricula" Type="nchar" MaxLength="15" />
-          <Property Name="Genero" Type="nchar" MaxLength="15" />
-          <Property Name="Password" Type="nchar" MaxLength="16" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="10" />
+          <Property Name="Matricula" Type="nvarchar" MaxLength="15" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="15" />
+          <Property Name="Password" Type="nvarchar" MaxLength="16" />
         </EntityType>
         <EntityType Name="Modulos">
           <Key>
@@ -84,12 +86,6 @@
           <Property Name="Nombre" Type="text" />
           <Property Name="Syllabus" Type="text" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'DatabaseEspam.dbo.ModulosPrerequisitos' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ModulosPrerequisitos">
-          <Property Name="IdMod1" Type="int" />
-          <Property Name="IdMod2" Type="int" />
-        </EntityType>-->
         <EntityType Name="Pregunta_estudiante">
           <Key>
             <PropertyRef Name="Id" />
@@ -109,7 +105,7 @@ warning 6013: The table/view 'DatabaseEspam.dbo.ModulosPrerequisitos' does not h
           <Property Name="opcion2" Type="ntext" />
           <Property Name="opcion3" Type="ntext" />
           <Property Name="opcion4" Type="ntext" />
-          <Property Name="opcion_correcta" Type="nchar" MaxLength="10" />
+          <Property Name="opcion_correcta" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Prueba">
           <Key>
@@ -291,6 +287,15 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="AgregarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombres" Type="nvarchar" Mode="In" />
+          <Parameter Name="apellidos" Type="nvarchar" Mode="In" />
+          <Parameter Name="usuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+          <Parameter Name="genero" Type="nvarchar" Mode="In" />
+          <Parameter Name="area" Type="nvarchar" Mode="In" />
+          <Parameter Name="carrera" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="AgregarModulosADocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idModulo" Type="int" Mode="In" />
           <Parameter Name="idDocente" Type="int" Mode="In" />
@@ -465,10 +470,10 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Carrera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Cedula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Matricula" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Name="Genero" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="Cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Matricula" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Pruebas" Relationship="Self.FK_Test_estudiante_ToTable_1" FromRole="Estudiantes" ToRole="Prueba" />
         </EntityType>
         <EntityType Name="Modulo">
@@ -501,7 +506,7 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <Property Name="opcion2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="opcion3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="opcion4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="opcion_correcta" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="opcion_correcta" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Pregunta_estudiante" Relationship="Self.FK_Pregunta_estudiante_ToTable_1" FromRole="Preguntas" ToRole="Pregunta_estudiante" />
           <NavigationProperty Name="Tests" Relationship="Self.Test_Pregunta" FromRole="Preguntas" ToRole="Test" />
         </EntityType>
@@ -741,6 +746,15 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
             <End Role="Docente" EntitySet="Docentes" />
             <End Role="DocentesModulo" EntitySet="DocentesModulos" />
           </AssociationSet>
+          <FunctionImport Name="AgregarDocente">
+            <Parameter Name="nombres" Mode="In" Type="String" />
+            <Parameter Name="apellidos" Mode="In" Type="String" />
+            <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="genero" Mode="In" Type="String" />
+            <Parameter Name="area" Mode="In" Type="String" />
+            <Parameter Name="carrera" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetTest_Result">
           <Property Type="String" Name="pregunta" Nullable="true" MaxLength="Max" />
@@ -776,13 +790,15 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombres" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="Apellidos" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="Usuario" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Name="Genero" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Nombres" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Coordinadores" Relationship="DatabaseEspamModel.fk_docenteCoordinador" FromRole="Docente" ToRole="Coordinadore" />
           <NavigationProperty Name="DocentesModulos" Relationship="DatabaseEspamModel.fk_docente1" FromRole="Docente" ToRole="DocentesModulo" />
+          <Property Name="Area" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Carrera" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DocentesModulo">
           <Key>
@@ -1007,6 +1023,8 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           <EntitySetMapping Name="Docentes">
             <EntityTypeMapping TypeName="DatabaseEspamModel.Docente">
               <MappingFragment StoreEntitySet="Docentes">
+                <ScalarProperty Name="Carrera" ColumnName="Carrera" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
                 <ScalarProperty Name="Genero" ColumnName="Genero" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
@@ -1027,6 +1045,7 @@ warning 6002: The table/view 'DatabaseEspam.dbo.Test_Pregunta' does not have a p
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="AgregarModulosADocente" FunctionName="DatabaseEspamModel.Store.AgregarModulosADocente" />
           <FunctionImportMapping FunctionImportName="CambiarDocenteCoordinador" FunctionName="DatabaseEspamModel.Store.CambiarDocenteCoordinador" />
+          <FunctionImportMapping FunctionImportName="AgregarDocente" FunctionName="DatabaseEspamModel.Store.AgregarDocente" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

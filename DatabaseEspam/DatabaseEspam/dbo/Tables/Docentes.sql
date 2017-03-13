@@ -1,12 +1,14 @@
 ﻿CREATE TABLE [dbo].[Docentes]
 (
 	[Id] INT NOT NULL IDENTITY, 
-    [Nombres] NCHAR(30) NULL, 
-    [Apellidos] NCHAR(30) NULL, 
-    [Usuario] NCHAR(15) NULL, 
-    [Password] NCHAR(15) NULL, 
-    [Genero] NCHAR(10) NULL ,
-PRIMARY KEY CLUSTERED 
+    [Nombres] NVARCHAR(30) NULL, 
+    [Apellidos] NVARCHAR(30) NULL, 
+    [Usuario] NVARCHAR(15) NULL, 
+    [Password] NVARCHAR(15) NULL, 
+    [Genero] NVARCHAR(10) NULL ,
+[Area] NVARCHAR(30) NULL, 
+    [Carrera] NVARCHAR(30) NULL, 
+    PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]

@@ -18,11 +18,11 @@ namespace AppTest.Controllers
         // GET: Administrador
         public ActionResult Index()
         {
-            return View("../Convocatoria/Create");
+            return View("crearConvocatoria");
         }
         public ActionResult nuevaConvocatoria()
         {
-            return View("../Convocatoria/Create");
+            return View("crearConvocatoria");
         }
         public ActionResult nuevoTestAptitudes()
         {
@@ -79,6 +79,14 @@ namespace AppTest.Controllers
         {
             db.AgregarPreguntaATest(2, pregunta[0], pregunta[1], pregunta[2], pregunta[3], pregunta[4], Int32.Parse(pregunta[5]));
             return View("nuevoModulo");
+        }
+
+        [HttpPost]
+        public ActionResult crearConvocatoria(DateTime fincio, DateTime ffinal, String descripcion)
+
+        {
+            db.CrearConvocatoria(fincio,ffinal,descripcion);
+            return View("crearConvocatoria");
         }
 
     }

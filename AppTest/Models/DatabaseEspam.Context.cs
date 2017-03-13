@@ -230,5 +230,38 @@ namespace AppTest.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CambiarDocenteCoordinador", idDocenteParameter);
         }
+    
+        public virtual int AgregarDocente(string nombres, string apellidos, string usuario, string password, string genero, string area, string carrera)
+        {
+            var nombresParameter = nombres != null ?
+                new ObjectParameter("nombres", nombres) :
+                new ObjectParameter("nombres", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("apellidos", apellidos) :
+                new ObjectParameter("apellidos", typeof(string));
+    
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            var generoParameter = genero != null ?
+                new ObjectParameter("genero", genero) :
+                new ObjectParameter("genero", typeof(string));
+    
+            var areaParameter = area != null ?
+                new ObjectParameter("area", area) :
+                new ObjectParameter("area", typeof(string));
+    
+            var carreraParameter = carrera != null ?
+                new ObjectParameter("carrera", carrera) :
+                new ObjectParameter("carrera", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AgregarDocente", nombresParameter, apellidosParameter, usuarioParameter, passwordParameter, generoParameter, areaParameter, carreraParameter);
+        }
     }
 }

@@ -3,10 +3,10 @@
 	[Nombres] [nvarchar](50) NULL,
 	[Apellidos] [nvarchar](50) NULL,
 	[Carrera] [nvarchar](50) NULL,
-	[Cedula] [nchar](10) NULL,
-	[Matricula] [nchar](15) NULL,
-	[Genero] [nchar](15) NULL,
-[Password] NCHAR(16) NULL, 
+	[Cedula] NVARCHAR(10) NULL,
+	[Matricula] NVARCHAR(15) NULL,
+	[Genero] NVARCHAR(15) NULL,
+[Password] NVARCHAR(16) NULL, 
     PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
